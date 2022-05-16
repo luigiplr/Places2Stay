@@ -8,27 +8,6 @@ export const getaways: GetawayItem[] = [
         price: 126,
         image: 'https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?w=1536',
     },
-    {
-        address: '408 St. Jacques',
-        city: 'Old Montreal, Montreal',
-        beds: 1,
-        price: 126,
-        image: 'https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?w=1536',
-    },
-    {
-        address: '408 St. Jacques',
-        city: 'Old Montreal, Montreal',
-        beds: 1,
-        price: 126,
-        image: 'https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?w=1536',
-    },
-    {
-        address: '408 St. Jacques',
-        city: 'Old Montreal, Montreal',
-        beds: 1,
-        price: 126,
-        image: 'https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?w=1536',
-    },
 ];
 
 export const citys = [

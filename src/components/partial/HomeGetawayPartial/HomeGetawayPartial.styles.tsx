@@ -10,6 +10,7 @@ export default StyleSheet.create({
     },
     search: {
         paddingHorizontal: 51,
+        marginBottom: 4,
     },
     padding: {
         paddingHorizontal: 54,
