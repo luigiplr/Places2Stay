@@ -32,12 +32,10 @@ export default function HomeGetawayPartial() {
                     renderItem={({ item, index }) => (
                         <HomeCityItem
                             {...item}
-                            key={index}
+                            key={`${index}-${item.id}`}
                             style={[
-                                // eslint-disable-next-line react-native/no-inline-styles
-                                index === 0 ? { marginLeft: 54 } : undefined,
-                                // eslint-disable-next-line react-native/no-inline-styles
-                                index + 1 !== citys.length ? { marginRight: 20 } : undefined,
+                                styles.marginRight20,
+                                index === 0 ? styles.marginLeft54 : undefined,
                             ]}
                         />
                     )}

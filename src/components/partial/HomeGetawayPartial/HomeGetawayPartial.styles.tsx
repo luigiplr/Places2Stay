@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     wrap: {
         marginTop: 18,
-        paddingHorizontal: 54,
         marginBottom: 20,
     },
     subheader: {
@@ -14,5 +13,11 @@ export default StyleSheet.create({
     },
     padding: {
         paddingHorizontal: 54,
+    },
+    marginLeft54: {
+        marginLeft: 54,
+    },
+    marginRight20: {
+        marginRight: 20,
     },
 });
