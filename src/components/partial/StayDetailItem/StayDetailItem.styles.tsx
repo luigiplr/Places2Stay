@@ -30,6 +30,6 @@ export default StyleSheet.create({
     },
     dots: {
         justifyContent: 'center',
-        marginRight: 16
-    }
+        marginRight: 16,
+    },
 });
