@@ -1,5 +1,5 @@
 import { Text } from '#/components/base';
-import React, { useCallback } from 'react';
+import React from 'react';
 import { View, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -17,13 +17,11 @@ export default function HomeGetawayItem({
 }: GetawayItem) {
     const navigation = useNavigation();
 
-    const onPress = useCallback(() => {
-        navigation.navigate('Stay');
-    }, [navigation]);
-
     return (
         <View style={styles.wrap}>
-            <TouchableOpacity style={styles.imageContain} onPress={onPress}>
+            <TouchableOpacity
+                style={styles.imageContain}
+                onPress={() => navigation.navigate('Stay')}>
                 <View style={styles.priceContain}>
                     <Text center>From ${price}</Text>
                 </View>

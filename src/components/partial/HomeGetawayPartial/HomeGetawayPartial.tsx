@@ -10,14 +10,22 @@ import HomeCityItem from '../HomeCityItem';
 
 import styles from './HomeGetawayPartial.styles';
 import { HomeGetawayPartialProps } from './HomeGetawayPartial.types';
+import { useNavigation } from '@react-navigation/native';
 
 export default function HomeGetawayPartial({
     citys,
     getaways,
 }: HomeGetawayPartialProps) {
+    const navigation = useNavigation();
+
     return (
         <>
-            <HomeGetawaySearch style={styles.search} />
+            <HomeGetawaySearch
+                style={styles.search}
+                interactive={false}
+                onPress={() => navigation.navigate('Search')}
+                placeholder="Try 'Boston'"
+            />
 
             <Section
                 header="Find your getaway"

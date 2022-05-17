@@ -4,6 +4,7 @@ import { SvgXml } from 'react-native-svg';
 
 import CalIconSVG from '#/static/img/cal-icon.svg';
 import HomeLocationIconSVG from '#/static/img/home-location-icon.svg';
+import BackIconSVG from '#/static/img/back-icon.svg';
 
 import type { IconProps } from './Icon.types';
 
@@ -13,4 +14,8 @@ export const CalenderIcon = (props: IconProps) => (
 
 export const HomeLocationIcon = (props: IconProps) => (
     <SvgXml {...props} xml={HomeLocationIconSVG} />
+);
+
+export const BackIcon = (props: IconProps) => (
+    <SvgXml {...props} xml={BackIconSVG} />
 );

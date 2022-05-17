@@ -5,4 +5,5 @@ export type TextProps = {
     color?: string;
     center?: boolean;
     capitalize?: boolean;
+    size?: number;
 } & RNTextProps;

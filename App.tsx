@@ -14,24 +14,29 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import HomeScreen from '#/screens/HomeScreen';
-import StayScreen from '#/screens/StayScreen';
+import HomeScreen from '#/components/screens/HomeScreen';
+import StayScreen from '#/components/screens/StayScreen';
+import SearchScreen from '#/components/screens/SearchScreen';
 
 const Stack = createNativeStackNavigator();
 
-const App = () => (
-  <NavigationContainer>
-    <Stack.Navigator initialRouteName="Home" id="root">
-      <Stack.Group screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Group>
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home" id="root">
+        <Stack.Group screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Home" component={HomeScreen} />
+        </Stack.Group>
 
-      <Stack.Group
-        screenOptions={{ presentation: 'modal', headerShown: false }}>
-        <Stack.Screen name="Stay" component={StayScreen} />
-      </Stack.Group>
-    </Stack.Navigator>
-  </NavigationContainer>
-);
-
-export default App;
+        <Stack.Group
+          screenOptions={{
+            presentation: 'modal',
+            headerShown: false,
+          }}>
+          <Stack.Screen name="Stay" component={StayScreen} />
+          <Stack.Screen name="Search" component={SearchScreen} />
+        </Stack.Group>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}

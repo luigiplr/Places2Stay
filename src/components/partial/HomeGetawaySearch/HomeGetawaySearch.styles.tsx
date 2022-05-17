@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     textbox: {
-        width: '100%',
         height: 60,
         borderRadius: 100,
         backgroundColor: 'white',
@@ -22,5 +21,6 @@ export default StyleSheet.create({
         shadowOpacity: 0.17,
         shadowRadius: 3.05,
         elevation: 4,
+        paddingHorizontal: 35,
     },
 });

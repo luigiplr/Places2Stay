@@ -17,10 +17,11 @@ import stayData from './mock_data';
 import ScreenPartial from '#/components/partial/ScreenPartial';
 import { Text } from '#/components/base';
 import StayDetailItem from '#/components/partial/StayDetailItem';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function StayScreen() {
     return (
-        <ScreenPartial>
+        <ScreenPartial scoll={false}>
             <Image source={{ uri: stayData.image }} style={styles.image} />
 
             <View style={styles.content}>
@@ -28,7 +29,7 @@ export default function StayScreen() {
                 <Text style={styles.meta}>{stayData.location}</Text>
                 <Text style={styles.meta}>{stayData.dates}</Text>
 
-                <View style={styles.details}>
+                <ScrollView style={styles.details}>
                     {stayData.details.map(info => (
                         <StayDetailItem
                             title={info.title}
@@ -36,7 +37,7 @@ export default function StayScreen() {
                             key={info.title}
                         />
                     ))}
-                </View>
+                </ScrollView>
             </View>
         </ScreenPartial>
     );

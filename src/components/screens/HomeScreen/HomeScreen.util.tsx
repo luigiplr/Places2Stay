@@ -6,10 +6,11 @@ import { citys, getaways } from './mock_data';
 import styles from './HomeScreen.styles';
 
 export const Empty = () => <Text>djsak</Text>;
+
 export const HomeTab = () => (
-    <ScreenPartial>
+    <ScreenPartial style={styles.container}>
         <View style={styles.container}>
             <HomeGetawayPartial getaways={getaways} citys={citys} />
         </View>
     </ScreenPartial>
-)
+);
