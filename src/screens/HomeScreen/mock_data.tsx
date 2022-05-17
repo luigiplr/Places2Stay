@@ -1,4 +1,4 @@
-import type { GetawayItem } from '../HomeGetawayItem/HomeGetawayItem.types';
+import type { GetawayItem } from '#/components/partial/HomeGetawayItem/HomeGetawayItem.types';
 
 export const getaways: GetawayItem[] = [
     {

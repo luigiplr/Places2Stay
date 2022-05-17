@@ -5,14 +5,16 @@ import HomeGetawaySearch from '../HomeGetawaySearch';
 
 import HomeGetawayItem from '../HomeGetawayItem';
 
-import { citys, getaways } from './data';
-
 import { Section } from './HomeGetawayPartial.util';
 import HomeCityItem from '../HomeCityItem';
 
 import styles from './HomeGetawayPartial.styles';
+import { HomeGetawayPartialProps } from './HomeGetawayPartial.types';
 
-export default function HomeGetawayPartial() {
+export default function HomeGetawayPartial({
+    citys,
+    getaways,
+}: HomeGetawayPartialProps) {
     return (
         <>
             <HomeGetawaySearch style={styles.search} />

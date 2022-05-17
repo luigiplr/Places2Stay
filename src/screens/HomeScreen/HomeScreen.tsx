@@ -9,20 +9,21 @@
  */
 
 import React from 'react';
-import { View, SafeAreaView, ScrollView } from 'react-native';
 
-import styles from './home.styles';
+import styles from './HomeScreen.styles';
 
 import HomeGetawayPartial from '#/components/partial/HomeGetawayPartial';
 
+import { citys, getaways } from './mock_data';
+import ScreenPartial from '#/components/partial/ScreenPartial';
+import { View } from 'react-native';
+
 export default function HomeScreen() {
     return (
-        <SafeAreaView>
-            <ScrollView>
-                <View style={styles.container}>
-                    <HomeGetawayPartial />
-                </View>
-            </ScrollView>
-        </SafeAreaView>
+        <ScreenPartial>
+            <View style={styles.container}>
+                <HomeGetawayPartial getaways={getaways} citys={citys} />
+            </View>
+        </ScreenPartial>
     );
 }

@@ -9,6 +9,10 @@ export default function AppTabBar({ state, descriptors, navigation }) {
             {state.routes.map((route, index) => {
                 const { options } = descriptors[route.key];
 
+                if (!options?.icon) {
+                    return null;
+                }
+
                 const isFocused = state.index === index;
 
                 const onPress = () => {

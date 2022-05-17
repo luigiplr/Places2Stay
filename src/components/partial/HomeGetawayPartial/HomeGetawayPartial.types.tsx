@@ -1,3 +1,5 @@
+import type { GetawayItem } from '#/components/partial/HomeGetawayItem/HomeGetawayItem.types';
+
 export type SectionProps = {
     children?: React.ReactNode;
     header: string;
@@ -5,4 +7,15 @@ export type SectionProps = {
     style?: object;
     headerContainStyle?: object;
     padChildren?: boolean;
+};
+
+type City = {
+    id: number;
+    image: string;
+    title: string;
+};
+
+export type HomeGetawayPartialProps = {
+    citys: City[];
+    getaways: GetawayItem[];
 };
