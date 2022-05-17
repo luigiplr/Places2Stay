@@ -1,14 +1,14 @@
 import React from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
+import { SafeAreaView, ScrollView, View } from 'react-native';
 
 import { ScreenPartialProps } from './ScreenPartial.types';
 
 export default function ScreenPartial({ children }: ScreenPartialProps) {
     return (
-        <SafeAreaView>
-            <ScrollView>
-                {children}
-            </ScrollView>
-        </SafeAreaView>
+        <View style={{ backgroundColor: '#FFF1D2', flex: 1 }}>
+            <SafeAreaView>
+                <ScrollView>{children}</ScrollView>
+            </SafeAreaView>
+        </View>
     );
 }

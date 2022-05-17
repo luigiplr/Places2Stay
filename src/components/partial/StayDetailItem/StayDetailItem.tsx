@@ -23,6 +23,7 @@ export default function StayDetailItem({
             <View>
                 {details.map((detail, i) => (
                     <View
+                        key={detail.itemLabel}
                         style={[
                             styles.detailItem,
                             i !== details.length - 1 && { marginBottom: 14 },

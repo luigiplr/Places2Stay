@@ -10,20 +10,32 @@
 
 import React from 'react';
 
-import styles from './HomeScreen.styles';
+import { CalenderIcon, HomeLocationIcon } from '#/components/base/Icon';
+import AppTabBar from '#/components/partial/AppTabBar';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import HomeGetawayPartial from '#/components/partial/HomeGetawayPartial';
+import { HomeTab, Empty } from './HomeScreen.util';
 
-import { citys, getaways } from './mock_data';
-import ScreenPartial from '#/components/partial/ScreenPartial';
-import { View } from 'react-native';
+const Tab = createBottomTabNavigator();
 
 export default function HomeScreen() {
     return (
-        <ScreenPartial>
-            <View style={styles.container}>
-                <HomeGetawayPartial getaways={getaways} citys={citys} />
-            </View>
-        </ScreenPartial>
+        <Tab.Navigator tabBar={AppTabBar} initialRouteName="home_tab">
+            <Tab.Screen
+                name="home_tab"
+                component={HomeTab}
+                options={{
+                    headerShown: false,
+                    icon: <HomeLocationIcon width="34" height="30" />,
+                }}
+            />
+            <Tab.Screen
+                name="other_tab"
+                component={Empty}
+                options={{
+                    icon: <CalenderIcon width="34" height="30" />,
+                }}
+            />
+        </Tab.Navigator>
     );
 }
