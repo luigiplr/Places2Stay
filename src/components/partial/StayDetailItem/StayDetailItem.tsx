@@ -5,6 +5,7 @@ import { Text } from '#/components/base';
 
 import styles from './StayDetailItem.styles';
 import { StayDetailItemProps } from './StayDetailItem.types';
+import { ThreeDotsIcon } from '#/components/base/Icon';
 
 export default function StayDetailItem({
     title,
@@ -17,6 +18,10 @@ export default function StayDetailItem({
                     <Text center color="white" capitalize>
                         {title}
                     </Text>
+                </View>
+
+                <View style={styles.dots} >
+                    <ThreeDotsIcon width="18" height="4" />
                 </View>
             </View>
 

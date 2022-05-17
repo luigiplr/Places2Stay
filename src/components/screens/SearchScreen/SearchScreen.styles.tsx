@@ -13,9 +13,11 @@ export default StyleSheet.create({
     },
     backIcon: {
         marginRight: 13,
-        alignSelf: 'center'
+        alignSelf: 'center',
     },
-    searchInput: {
-
-    }
+    searchResults: {
+        paddingLeft: 71,
+        marginTop: 31,
+        width: '100%',
+    },
 });

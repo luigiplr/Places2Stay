@@ -28,4 +28,8 @@ export default StyleSheet.create({
         paddingLeft: 31,
         paddingRight: 40,
     },
+    dots: {
+        justifyContent: 'center',
+        marginRight: 16
+    }
 });
