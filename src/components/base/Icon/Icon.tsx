@@ -8,7 +8,6 @@ import BackIconSVG from '#/static/img/back-icon.svg';
 import SearchPinIconSVG from '#/static/img/search-pin.svg';
 import ThreeDotsIconSVG from '#/static/img/3-dots.svg';
 
-
 import type { IconProps } from './Icon.types';
 
 export const CalenderIcon = (props: IconProps) => (
