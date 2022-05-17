@@ -20,7 +20,7 @@ export default function StayDetailItem({
                     </Text>
                 </View>
 
-                <View style={styles.dots} >
+                <View style={styles.dots}>
                     <ThreeDotsIcon width="18" height="4" />
                 </View>
             </View>
