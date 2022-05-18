@@ -16,7 +16,11 @@ export default function HomeGetawaySearch({
     return (
         <View style={style}>
             {interactive ? (
-                <TextInput style={styles.textbox} placeholder={placeholder} {...props} />
+                <TextInput
+                    style={styles.textbox}
+                    placeholder={placeholder}
+                    {...props}
+                />
             ) : (
                 <TouchableWithoutFeedback onPress={onPress}>
                     <View
