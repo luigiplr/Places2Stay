@@ -1,10 +1,10 @@
 import ScreenPartial from '#/components/partial/ScreenPartial';
-import { Text, View, SafeAreaView } from 'react-native';
+import { Text, View } from 'react-native';
 import React from 'react';
 import HomeGetawayPartial from '#/components/partial/HomeGetawayPartial';
 import { citys, getaways } from './mock_data';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { BlurView, VibrancyView } from '@react-native-community/blur';
+import { BlurView } from '@react-native-community/blur';
 
 import styles from './HomeScreen.styles';
 
