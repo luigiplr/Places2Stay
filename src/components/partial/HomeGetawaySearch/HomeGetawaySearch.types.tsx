@@ -3,4 +3,5 @@ export type HomeGetawaySearchProps = {
     interactive?: boolean;
     onPress?: () => void;
     placeholder?: string;
+    onChangeText?: (s: string) => void;
 };

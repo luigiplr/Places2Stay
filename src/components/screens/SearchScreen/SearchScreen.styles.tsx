@@ -16,8 +16,12 @@ export default StyleSheet.create({
         alignSelf: 'center',
     },
     searchResults: {
-        paddingLeft: 71,
+        paddingLeft: 101,
         marginTop: 31,
         width: '100%',
+    },
+    input: {
+        flexGrow: 0,
+        width: 230,
     },
 });

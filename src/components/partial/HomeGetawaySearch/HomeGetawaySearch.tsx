@@ -11,17 +11,18 @@ export default function HomeGetawaySearch({
     interactive = true,
     onPress,
     placeholder,
+    ...props
 }: HomeGetawaySearchProps) {
     return (
         <View style={style}>
             {interactive ? (
-                <TextInput style={styles.textbox} placeholder={placeholder} />
+                <TextInput style={styles.textbox} placeholder={placeholder} {...props} />
             ) : (
                 <TouchableWithoutFeedback onPress={onPress}>
                     <View
                         style={[styles.textbox, { justifyContent: 'center' }]}>
                         <Text center color="#858585" size={16}>
-                            Try 'Boston'
+                            {placeholder}
                         </Text>
                     </View>
                 </TouchableWithoutFeedback>

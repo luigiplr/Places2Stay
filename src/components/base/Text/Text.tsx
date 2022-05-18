@@ -13,7 +13,7 @@ export default function Text({
     color = '#000000',
     center,
     capitalize: capitalizeProp,
-    size
+    size,
 }: TextProps) {
     const body = useMemo(() => {
         if (capitalizeProp && typeof children === 'string') {

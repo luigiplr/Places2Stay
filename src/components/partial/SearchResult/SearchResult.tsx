@@ -14,7 +14,7 @@ export default function SearchResult({
 }) {
     return (
         <View style={styles.result}>
-            <SearchPinIcon height="28" width="21" />
+            <SearchPinIcon height="28" width="21" style={styles.icon} />
             {text ? <Text size={16}>{text}</Text> : null}
             {children}
         </View>
