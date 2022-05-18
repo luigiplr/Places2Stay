@@ -17,6 +17,8 @@ export const Section = ({
             {subheader && <Text style={styles.subheader}>{subheader}</Text>}
         </View>
 
-        <View style={padChildren && styles.padding}>{children}</View>
+        {children ? (
+            <View style={padChildren && styles.padding}>{children}</View>
+        ) : null}
     </View>
 );

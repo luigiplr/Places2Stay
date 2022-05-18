@@ -1,7 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-    container: {
-        paddingVertical: 37,
+    blur: {
+        position: 'absolute',
+        width: '100%',
+        zIndex: 99,
     },
 });

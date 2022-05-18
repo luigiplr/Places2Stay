@@ -8,10 +8,11 @@ export default function ScreenPartial({
     children,
     style,
     scoll = true,
+    ViewComponent = SafeAreaView,
 }: ScreenPartialProps) {
     return (
-        <SafeAreaView style={[styles.screen, style]}>
+        <ViewComponent style={[styles.screen, style]}>
             {scoll ? <ScrollView>{children}</ScrollView> : children}
-        </SafeAreaView>
+        </ViewComponent>
     );
 }

@@ -18,4 +18,5 @@ type City = {
 export type HomeGetawayPartialProps = {
     citys: City[];
     getaways: GetawayItem[];
+    ListHeaderComponentStyle?: object;
 };

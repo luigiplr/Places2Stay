@@ -14,11 +14,12 @@ export default function HomeGetawayItem({
     beds,
     city,
     image,
+    style
 }: GetawayItem) {
     const navigation = useNavigation();
 
     return (
-        <View style={styles.wrap}>
+        <View style={[styles.wrap, style]}>
             <TouchableOpacity
                 style={styles.imageContain}
                 onPress={() => navigation.navigate('Stay')}>

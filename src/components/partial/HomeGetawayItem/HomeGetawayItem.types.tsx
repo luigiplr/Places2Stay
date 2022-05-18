@@ -4,4 +4,5 @@ export type GetawayItem = {
     beds: number;
     city: string;
     image: string;
-}
+    style?: object;
+};
