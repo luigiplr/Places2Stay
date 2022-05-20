@@ -14,10 +14,11 @@ export default function SearchScreen({ navigation }: Props) {
     const [searchResult, onSearchResult] = useState<string[]>([]);
 
     useEffect(() => {
-        const citySearchResult = searchMockData.cities.filter(label =>
-            label.toLowerCase().includes(searchInput.toLowerCase()),
+        onSearchResult(
+            searchMockData.cities.filter(label =>
+                label.toLowerCase().includes(searchInput.toLowerCase()),
+            ),
         );
-        onSearchResult(citySearchResult);
     }, [searchInput]);
 
     return (
