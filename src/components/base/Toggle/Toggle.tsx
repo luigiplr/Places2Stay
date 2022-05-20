@@ -7,6 +7,12 @@ import _ from 'lodash';
 import { Props } from './Toggle.types';
 import styles from './Toggle.styles';
 
+const spring = (element: Animated.Value, toValue: number) =>
+    Animated.spring(element, {
+        toValue,
+        useNativeDriver: false,
+    }).start();
+
 const Toggle = ({ onToggle, values, selected = 0 }: Props) => {
     const [widths, setWidths] = useState<number[]>(values.map(() => 0));
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -47,15 +53,8 @@ const Toggle = ({ onToggle, values, selected = 0 }: Props) => {
                 5 + index * 10,
             );
 
-            Animated.spring(toggleAnimationLeft, {
-                toValue: offset,
-                useNativeDriver: false,
-            }).start();
-
-            Animated.spring(toggleAnimationWidth, {
-                toValue: widths[index],
-                useNativeDriver: false,
-            }).start();
+            spring(toggleAnimationLeft, offset);
+            spring(toggleAnimationWidth, widths[index]);
 
             if (onToggle) {
                 onToggle(index);
