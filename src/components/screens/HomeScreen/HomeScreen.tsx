@@ -14,7 +14,8 @@ import { CalenderIcon, HomeLocationIcon } from '#/components/base/Icon';
 import AppTabBar from '#/components/partial/AppTabBar';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { HomeTab, Empty } from './HomeScreen.util';
+import { HomeTab } from './HomeScreen.util';
+import CalendarScreen from '../CalenderScreen/CalendarScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -31,7 +32,7 @@ export default function HomeScreen() {
             />
             <Tab.Screen
                 name="other_tab"
-                component={Empty}
+                component={CalendarScreen}
                 options={{
                     icon: <CalenderIcon width="34" height="30" />,
                 }}

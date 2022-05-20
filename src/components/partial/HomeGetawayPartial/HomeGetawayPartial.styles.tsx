@@ -9,8 +9,11 @@ export default StyleSheet.create({
         marginTop: 20,
     },
     search: {
-        paddingHorizontal: 51,
+        paddingHorizontal: 32,
         marginBottom: 4,
+        paddingTop: 37,
+        zIndex: 99,
+        backgroundColor: '#FFF1D2',
     },
     padding: {
         paddingHorizontal: 54,

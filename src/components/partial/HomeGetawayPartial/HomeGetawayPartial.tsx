@@ -21,25 +21,29 @@ export default function HomeGetawayPartial({
 
     return (
         <FlatList
-            data={getaways}
+            data={['header', ...getaways]}
             ListHeaderComponentStyle={ListHeaderComponentStyle}
-            renderItem={({ item, index }) => (
-                <HomeGetawayItem {...item} key={index} style={styles.padding} />
-            )}
-            ListHeaderComponent={() => (
-                <>
-                    <HomeGetawaySearch
-                        style={styles.search}
-                        interactive={false}
-                        onPress={() => navigation.navigate('Search')}
-                        placeholder="Try 'Boston'"
-                    />
-
+            renderItem={({ item, index }) =>
+                item === 'header' ? (
                     <Section
                         header="Find your getaway"
                         subheader="Our spaces are designed for comfort - whether you are working, relaxing, or craving some spaces"
                     />
-                </>
+                ) : (
+                    <HomeGetawayItem
+                        {...item}
+                        key={index}
+                        style={styles.padding}
+                    />
+                )
+            }
+            ListHeaderComponent={() => (
+                <HomeGetawaySearch
+                    interactive={false}
+                    onPress={() => navigation.navigate('Search')}
+                    placeholder="Try 'Boston'"
+                    style={styles.search}
+                />
             )}
             ListFooterComponent={() => (
                 <Section header="20+ cities to explore" padChildren={false}>
@@ -61,6 +65,7 @@ export default function HomeGetawayPartial({
                     />
                 </Section>
             )}
+            stickyHeaderIndices={[0]}
         />
     );
 }

@@ -2,8 +2,8 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     textbox: {
-        height: 60,
-        borderRadius: 100,
+        height: 55,
+        borderRadius: 40,
         backgroundColor: 'white',
         textAlign: 'center',
         color: '#858585',
