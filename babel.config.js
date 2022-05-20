@@ -24,5 +24,6 @@ module.exports = {
                 extensions: ['.svg'],
             },
         ],
+        '@babel/plugin-proposal-export-namespace-from',
     ],
 };

@@ -1,5 +1,4 @@
-import { Text } from '#/components/base';
-import { SearchPinIcon } from '#/components/base/Icon';
+import { Text, Icon } from '#/components/base';
 import React from 'react';
 import { View } from 'react-native';
 
@@ -14,7 +13,7 @@ export default function SearchResult({
 }) {
     return (
         <View style={styles.result}>
-            <SearchPinIcon height="28" width="21" style={styles.icon} />
+            <Icon.SearchPinIcon height="28" width="21" style={styles.icon} />
             {text ? <Text size={16}>{text}</Text> : null}
             {children}
         </View>

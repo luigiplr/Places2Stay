@@ -1,11 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
 
-import { Text } from '#/components/base';
+import { Text, Icon } from '#/components/base';
 
 import styles from './StayDetailItem.styles';
 import { StayDetailItemProps } from './StayDetailItem.types';
-import { ThreeDotsIcon } from '#/components/base/Icon';
 
 export default function StayDetailItem({
     title,
@@ -21,7 +20,7 @@ export default function StayDetailItem({
                 </View>
 
                 <View style={styles.dots}>
-                    <ThreeDotsIcon width="18" height="4" />
+                    <Icon.ThreeDotsIcon width="18" height="4" />
                 </View>
             </View>
 

@@ -1,4 +1,4 @@
-import { BackIcon } from '#/components/base/Icon';
+import { Icon } from '#/components/base';
 import HomeGetawaySearch from '#/components/partial/HomeGetawaySearch';
 import SearchResult from '#/components/partial/SearchResult';
 import React, { useState, useEffect } from 'react';
@@ -26,7 +26,7 @@ export default function SearchScreen({ navigation }: Props) {
             <View style={styles.header}>
                 <View style={styles.backIcon}>
                     <TouchableOpacity onPress={() => navigation.goBack()}>
-                        <BackIcon width="24" height="24" />
+                        <Icon.BackIcon width="24" height="24" />
                     </TouchableOpacity>
                 </View>
 

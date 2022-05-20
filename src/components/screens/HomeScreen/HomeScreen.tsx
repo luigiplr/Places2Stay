@@ -10,7 +10,7 @@
 
 import React from 'react';
 
-import { CalenderIcon, HomeLocationIcon } from '#/components/base/Icon';
+import { Icon } from '#/components/base';
 import AppTabBar from '#/components/partial/AppTabBar';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -27,14 +27,14 @@ export default function HomeScreen() {
                 component={HomeTab}
                 options={{
                     headerShown: false,
-                    icon: <HomeLocationIcon width="34" height="30" />,
+                    icon: <Icon.HomeLocationIcon width="34" height="30" />,
                 }}
             />
             <Tab.Screen
                 name="other_tab"
                 component={CalendarScreen}
                 options={{
-                    icon: <CalenderIcon width="34" height="30" />,
+                    icon: <Icon.CalenderIcon width="34" height="30" />,
                 }}
             />
         </Tab.Navigator>
