@@ -3,8 +3,12 @@ import { Text as RNText } from 'react-native';
 import capitalize from 'capitalize';
 
 import type { TextProps } from './Text.types';
+import _ from 'lodash';
 
 import styles from './Text.styles';
+import useSetting from '#/hooks/useSetting';
+
+import themes from '#/styles/themes';
 
 export default function Text({
     children,
@@ -16,6 +20,13 @@ export default function Text({
     size,
     bold,
 }: TextProps) {
+    const appTheme = useSetting('app.theme')[0] ?? 'lighthouselabs';
+
+    const varientCap = useMemo(
+        () => _.capitalize(varient) as 'Body' | 'Header',
+        [varient],
+    );
+
     const body = useMemo(() => {
         if (capitalizeProp && typeof children === 'string') {
             return capitalize.words(children);
@@ -27,9 +38,14 @@ export default function Text({
     return (
         <RNText
             style={[
-                styles?.[varient],
+                themes?.[appTheme as 'lighthouselabs' | 'greatnotgood']?.[
+                    `text${varientCap}`
+                ],
+                bold &&
+                    themes?.[appTheme as 'lighthouselabs' | 'greatnotgood']?.[
+                        `text${varientCap}Bold`
+                    ],
                 center && styles.center,
-                bold && styles.bold,
                 typeof size === 'number' ? { fontSize: size } : undefined,
                 { color },
                 style,

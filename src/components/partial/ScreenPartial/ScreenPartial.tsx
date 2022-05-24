@@ -12,17 +12,14 @@ export default function ScreenPartial({
     scoll = true,
     ViewComponent = SafeAreaView,
 }: ScreenPartialProps) {
-    const [appTheme] = useSetting('app.theme');
+    const appTheme = useSetting('app.theme')[0] ?? 'lighthouselabs';
 
     return (
         <ViewComponent
             style={[
                 styles.screen,
                 { backgroundColor: '#FFF1D2' },
-                themes?.[
-                    (appTheme as 'lighthouselabs' | 'greatnotgood' | null) ??
-                    'lighthouselabs'
-                ]?.appBg,
+                themes?.[appTheme as 'lighthouselabs' | 'greatnotgood']?.appBg,
             ]}>
             <View style={style}>
                 {scoll ? <ScrollView>{children}</ScrollView> : children}

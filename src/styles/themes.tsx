@@ -1,9 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 const lighthouselabs = StyleSheet.create({
-    appBg: {
-        backgroundColor: '#FFF1D2',
-    },
+    appBg: { backgroundColor: '#FFF1D2' },
 
     textHeader: {
         color: 'black',
@@ -17,15 +15,12 @@ const lighthouselabs = StyleSheet.create({
         fontFamily: 'EncodeSans-Regular',
     },
 
-    textBodyBold: {
-        fontFamily: 'AvenirNext-Medium',
-    },
+    textHeaderBold: { fontFamily: 'Bitter-Regular' },
+    textBodyBold: { fontFamily: 'EncodeSans-Regular' },
 });
 
 const greatnotgood = StyleSheet.create({
-    appBg: {
-        backgroundColor: '#FFFFFF',
-    },
+    appBg: { backgroundColor: '#FFFFFF' },
 
     textHeader: {
         color: '#29375F',
@@ -39,9 +34,9 @@ const greatnotgood = StyleSheet.create({
         fontFamily: 'AvenirNext-Regular',
     },
 
-    textBodyBold: {
-        fontFamily: 'AvenirNext-Medium',
-    },
+    textHeaderBold: { fontFamily: 'AvenirNext-Regular' },
+
+    textBodyBold: { fontFamily: 'AvenirNext-Medium' },
 });
 
 export default {
