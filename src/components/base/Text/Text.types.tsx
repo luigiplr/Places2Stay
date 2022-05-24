@@ -6,4 +6,5 @@ export type TextProps = {
     center?: boolean;
     capitalize?: boolean;
     size?: number;
+    bold?: boolean;
 } & RNTextProps;

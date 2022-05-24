@@ -14,6 +14,7 @@ export default function Text({
     center,
     capitalize: capitalizeProp,
     size,
+    bold
 }: TextProps) {
     const body = useMemo(() => {
         if (capitalizeProp && typeof children === 'string') {
@@ -28,6 +29,7 @@ export default function Text({
             style={[
                 styles?.[varient],
                 center && styles.center,
+                bold && styles.bold,
                 typeof size === 'number' ? { fontSize: size } : undefined,
                 { color },
                 style,

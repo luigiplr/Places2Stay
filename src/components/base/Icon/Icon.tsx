@@ -9,6 +9,10 @@ import SearchPinIconSVG from '#/static/img/search-pin.svg';
 import ThreeDotsIconSVG from '#/static/img/3-dots.svg';
 
 import type { IconProps } from './Icon.types';
+import { View } from 'react-native';
+
+import colors from '#/styles/colors';
+import styles from './Icon.styles';
 
 export const CalenderIcon = (props: IconProps) => (
     <SvgXml {...props} xml={CalIconSVG} />
@@ -28,4 +32,23 @@ export const SearchPinIcon = (props: IconProps) => (
 
 export const ThreeDotsIcon = (props: IconProps) => (
     <SvgXml {...props} xml={ThreeDotsIconSVG} />
+);
+
+export const StaggeredMenuIcon = ({
+    width = 40,
+    height = 5,
+}: {
+    width?: number;
+    height?: number;
+}) => (
+    <View>
+        <View style={[{ width: width }, colors.bgDarkBlue, styles.menuIcon]} />
+        <View
+            style={[
+                { width: width / 2, marginTop: height - 4 },
+                colors.bgDarkBlue,
+                styles.menuIcon,
+            ]}
+        />
+    </View>
 );
