@@ -35,9 +35,17 @@ export default function HomeHeader() {
                 Find deals on hotels, homes, and much more...
             </Text>
 
-            <View style={[layout.center, styles.searchbox]}>
-                <Text>where are you going?</Text>
-                <Icon name="search" size={30} color="#900" />
+            <View
+                style={[
+                    layout.flexHorizontal,
+                    layout.center,
+                    styles.searchbox,
+                ]}>
+                <Text style={layout.flexGrow} size={14} color="#7581A0">
+                    where are you going?
+                </Text>
+
+                <Icon name="search" size={22} color="#39A0FF" />
             </View>
         </>
     );

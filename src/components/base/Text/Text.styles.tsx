@@ -3,16 +3,16 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     header: {
         fontSize: 24,
-        // fontFamily: 'Bitter-Regular',
+        //fontFamily: 'Bitter-Regular',
     },
     body: {
         fontSize: 13,
-        // fontFamily: 'EncodeSans-Regular',
+        fontFamily: 'AvenirNext-Regular',
     },
     center: {
         textAlign: 'center',
     },
     bold: {
-        fontWeight: 'bold'
+        fontFamily: 'AvenirNext-Medium',
     },
 });

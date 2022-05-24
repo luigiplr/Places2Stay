@@ -15,9 +15,12 @@ const spring = (element: Animated.Value, toValue: number) =>
 
 const Toggle = ({ onToggle, values, selected = 0 }: Props) => {
     const [widths, setWidths] = useState<number[]>(values.map(() => 0));
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(() => selected);
 
-    const toggleAnimationWidth = useRef(new Animated.Value(widths[0])).current;
+    const toggleAnimationWidth = useRef(
+        new Animated.Value(widths[currentIndex]),
+    ).current;
+
     const toggleAnimationLeft = useRef(new Animated.Value(5)).current;
 
     const setValues = useCallback(
@@ -27,6 +30,24 @@ const Toggle = ({ onToggle, values, selected = 0 }: Props) => {
             toggleAnimationLeft.setValue(5);
         },
         [currentIndex, toggleAnimationLeft, toggleAnimationWidth],
+    );
+
+    const updateOffsets = useCallback(
+        (index: number, animate = true) => {
+            const offset: number = _.take(widths, index).reduce(
+                (result: number, incoming: number) => result + incoming,
+                5 + index * 10,
+            );
+
+            if (animate) {
+                spring(toggleAnimationLeft, offset);
+                spring(toggleAnimationWidth, widths[index]);
+            } else {
+                toggleAnimationLeft.setValue(offset);
+                toggleAnimationWidth.setValue(widths[index]);
+            }
+        },
+        [toggleAnimationLeft, toggleAnimationWidth, widths],
     );
 
     const onLayout = useCallback(
@@ -39,22 +60,16 @@ const Toggle = ({ onToggle, values, selected = 0 }: Props) => {
             if (!_.isEqual(newWidths, width)) {
                 setValues(newWidths);
                 setWidths(newWidths);
+                updateOffsets(currentIndex, false);
             }
         },
-        [widths, setValues],
+        [widths, setValues, currentIndex, updateOffsets],
     );
 
     const onPress = useCallback(
         (index: number) => {
             setCurrentIndex(index);
-
-            const offset: number = _.take(widths, index).reduce(
-                (result: number, incoming: number) => result + incoming,
-                5 + index * 10,
-            );
-
-            spring(toggleAnimationLeft, offset);
-            spring(toggleAnimationWidth, widths[index]);
+            updateOffsets(index);
 
             if (onToggle) {
                 onToggle(index);

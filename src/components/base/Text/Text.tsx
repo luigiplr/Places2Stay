@@ -14,7 +14,7 @@ export default function Text({
     center,
     capitalize: capitalizeProp,
     size,
-    bold
+    bold,
 }: TextProps) {
     const body = useMemo(() => {
         if (capitalizeProp && typeof children === 'string') {

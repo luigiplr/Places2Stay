@@ -12,9 +12,11 @@ export default StyleSheet.create({
     },
     searchbox: {
         backgroundColor: '#FBFBFD',
-        height: 50,
+        height: 55,
         borderRadius: 15,
         marginTop: 30,
+        marginBottom: 40,
         alignContent: 'space-between',
+        paddingHorizontal: 25,
     },
 });

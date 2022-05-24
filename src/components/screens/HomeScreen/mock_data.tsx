@@ -1,25 +1,31 @@
 import type { GetawayItem } from '#/components/partial/HomeGetawayItem/HomeGetawayItem.types';
 
-export const getaways: GetawayItem[] = [
+export const getaways = [
     {
         address: '408 St. Jacques',
-        city: 'Old Montreal, Montreal',
+        city: 'Montreal',
         beds: 1,
         price: 126,
+        stars: 3.2,
+        title: 'Montreal Apartment',
         image: 'https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?w=1536',
     },
     {
         address: '408 St. Jacques',
-        city: 'Old Montreal, Montreal',
+        city: 'Montreal',
         beds: 1,
         price: 126,
+        stars: 5,
+        title: 'Montreal Loft',
         image: 'https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?w=1536',
     },
     {
         address: '408 St. Jacques',
-        city: 'Old Montreal, Montreal',
+        city: 'Montreal',
         beds: 1,
         price: 126,
+        stars: 4,
+        title: 'Montreal Apartment',
         image: 'https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?w=1536',
     },
 ];
@@ -44,6 +50,11 @@ export const citys = [
     {
         id: 4,
         image: 'https://assets.simpleviewinc.com/simpleview/image/upload/v1/clients/vancouverbc/The-City_121bc6b2-ca7f-45be-a877-7e166af5502d.jpg',
-        title: 'Vancourver',
+        title: 'Vancouver',
     },
-]
+    {
+        id: 5,
+        image: 'https://blog-www.pods.com/wp-content/uploads/2019/08/MG_6_1_Miami.jpg',
+        title: 'Miami',
+    },
+];
