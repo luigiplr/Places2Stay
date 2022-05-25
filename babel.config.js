@@ -25,5 +25,7 @@ module.exports = {
             },
         ],
         '@babel/plugin-proposal-export-namespace-from',
+        // ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
+        //   ['react-native-web', { commonjs: true }],
     ],
 };
