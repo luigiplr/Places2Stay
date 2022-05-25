@@ -26,27 +26,45 @@ export default function HomeTabNavigator({
                 name="home_tab"
                 component={children}
                 options={{
-                    icon: (isFocused: boolean) => appTheme === 'lighthouselabs' ? (
-                        <Icon.HomeLocationIcon width="34" height="30" />
-                    ) : (
-                        <FeatherIcon name="home" size={23} color={isFocused ? '#3394FF' : undefined} />
-                    )
+                    icon: (isFocused: boolean) =>
+                        appTheme === 'lighthouselabs' ? (
+                            <Icon.HomeLocationIcon width="34" height="30" />
+                        ) : (
+                            <FeatherIcon
+                                name="home"
+                                size={23}
+                                color={isFocused ? '#3394FF' : undefined}
+                            />
+                        ),
                 }}
             />
             <Tab.Screen
                 name="other_tab"
                 component={CalenderScreen}
                 options={{
-                    icon: (isFocused: boolean) => appTheme === 'lighthouselabs' ? <Icon.CalenderIcon width="34" height="30" /> : (
-                        <FeatherIcon name="calendar" size={23} color={isFocused ? '#3394FF' : undefined} />
-                    )
+                    icon: (isFocused: boolean) =>
+                        appTheme === 'lighthouselabs' ? (
+                            <Icon.CalenderIcon width="34" height="30" />
+                        ) : (
+                            <FeatherIcon
+                                name="calendar"
+                                size={23}
+                                color={isFocused ? '#3394FF' : undefined}
+                            />
+                        ),
                 }}
             />
             <Tab.Screen
                 name="settings_tab"
                 component={SettingsScreen}
                 options={{
-                    icon: (isFocused: boolean) => <FeatherIcon name="settings" size={appTheme === 'lighthouselabs' ? 30 : 23} color={isFocused ? '#3394FF' : undefined} />,
+                    icon: (isFocused: boolean) => (
+                        <FeatherIcon
+                            name="settings"
+                            size={appTheme === 'lighthouselabs' ? 30 : 23}
+                            color={isFocused ? '#3394FF' : undefined}
+                        />
+                    ),
                 }}
             />
         </Tab.Navigator>

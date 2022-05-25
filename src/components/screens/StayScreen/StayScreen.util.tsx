@@ -11,6 +11,7 @@ import { BlurView } from '@react-native-community/blur';
 import Icon from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
 import { Card, Text } from '#/components/base';
+import { SharedElement } from 'react-navigation-shared-element';
 
 export const StayScreenBackButtonHeader = () => {
     const navigation = useNavigation();
@@ -61,36 +62,38 @@ const reviewAvatars = [
     'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
 ];
 
-export const Reviews = () => (
-    <Card style={[layout.flexHorizontal, layout.spaceApart]}>
-        <View style={layout.noFlexGrow}>
-            <RatingStars stars={4} />
-            <View style={[layout.flexHorizontal, layout.centerVertical]}>
-                <Text style={styles.reviewers} size={11}>
-                    129 Reviews
-                </Text>
+export const Reviews = ({ id }: { id: string }) => (
+    <SharedElement id={`stay-rating-${id}`}>
+        <Card style={[layout.flexHorizontal, layout.spaceApart]}>
+            <View style={layout.noFlexGrow}>
+                <RatingStars stars={4} />
+                <View style={[layout.flexHorizontal, layout.centerVertical]}>
+                    <Text style={styles.reviewers} size={11}>
+                        129 Reviews
+                    </Text>
 
-                <Icon
-                    name="chevron-right"
-                    size={15}
-                    color="#9E9BA6"
-                    style={{ top: 2, marginLeft: 4 }}
-                />
-            </View>
-        </View>
-
-        <View>
-            <View style={[layout.flexHorizontal, { left: 32 }]}>
-                {reviewAvatars.map((uri, i) => (
-                    <Avatar
-                        uri={uri}
-                        key={uri}
-                        style={i === 0 ? undefined : { left: -10 * i }}
+                    <Icon
+                        name="chevron-right"
+                        size={15}
+                        color="#9E9BA6"
+                        style={{ top: 2, marginLeft: 4 }}
                     />
-                ))}
+                </View>
             </View>
-        </View>
-    </Card>
+
+            <View>
+                <View style={[layout.flexHorizontal, { left: 32 }]}>
+                    {reviewAvatars.map((uri, i) => (
+                        <Avatar
+                            uri={uri}
+                            key={uri}
+                            style={i === 0 ? undefined : { left: -10 * i }}
+                        />
+                    ))}
+                </View>
+            </View>
+        </Card>
+    </SharedElement>
 );
 
 export const SectionHeader = ({

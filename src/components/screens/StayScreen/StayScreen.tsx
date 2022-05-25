@@ -66,7 +66,7 @@ function StayScreen({ route }) {
                             />
 
                             <View style={[styles.content, { paddingTop: 0 }]}>
-                                <Reviews />
+                                <Reviews id={route?.params?.id} />
 
                                 <SectionHeader more>
                                     What this place offers
@@ -92,8 +92,14 @@ StayScreen.sharedElements = route => [
     {
         id: `body-${route?.params?.id}`,
         animation: 'fade',
-        resize: 'auto',
+        resize: 'clip',
         align: 'auto',
+    },
+    {
+        id: `stay-rating-${route?.params?.id}`,
+        animation: 'fade',
+        resize: 'none',
+        align: 'center-center',
     },
 ];
 
