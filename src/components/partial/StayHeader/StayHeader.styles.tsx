@@ -4,6 +4,7 @@ export default StyleSheet.create({
     content: {
         paddingHorizontal: 32,
         paddingTop: 15,
+        backgroundColor: 'white',
     },
     meta: {
         color: '#858585',

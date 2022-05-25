@@ -1,12 +1,12 @@
 import styles from './Card.styles';
 import React from 'react';
-import { StyleProp, View, ViewStyle } from 'react-native';
+import { View } from 'react-native';
 
 export default function Card({
     style,
     children,
 }: {
-    style?: StyleProp<ViewStyle>;
+    style?: object;
     children: React.ReactElement;
 }) {
     return <View style={[style, styles.card]}>{children}</View>;

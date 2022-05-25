@@ -4,4 +4,5 @@ export type StayHeaderProps = {
     location?: string;
     dates?: string;
     price?: number;
+    id?: string | number;
 };

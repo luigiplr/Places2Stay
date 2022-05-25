@@ -3,7 +3,7 @@ export default {
     titleShort: 'Montreal Loft',
     location: 'Old Montreal, Montreal',
     dates: 'Oct.29, 2021 - Oct.31, 2021',
-    image: 'https://media.cntraveler.com/photos/5d112d50c4d7bd806dbc00a4/16:9/w_2560%2Cc_limit/airbnb%2520luxe.jpg',
+    image: 'https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?w=1536',
     price: 128,
     details: [
         {

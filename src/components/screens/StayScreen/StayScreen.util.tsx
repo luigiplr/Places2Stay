@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, ImageStyle, StyleProp, View } from 'react-native';
+import { Image, View } from 'react-native';
 
 import styles from './StayScreen.styles';
 
@@ -50,13 +50,9 @@ export const RatingStars = ({ stars }: { stars: number }) => (
     </View>
 );
 
-export const Avatar = ({
-    uri,
-    style,
-}: {
-    uri: string;
-    style?: StyleProp<ImageStyle>;
-}) => <Image source={{ uri }} style={[styles.avatar, style]} />;
+export const Avatar = ({ uri, style }: { uri: string; style?: object }) => (
+    <Image source={{ uri }} style={[styles.avatar, style]} />
+);
 
 const reviewAvatars = [
     'https://t3.ftcdn.net/jpg/02/22/85/16/360_F_222851624_jfoMGbJxwRi5AWGdPgXKSABMnzCQo9RN.jpg',

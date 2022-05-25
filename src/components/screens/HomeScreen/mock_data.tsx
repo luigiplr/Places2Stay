@@ -2,6 +2,7 @@ import type { GetawayItem } from '#/components/partial/HomeGetawayItem/HomeGetaw
 
 export const getaways = [
     {
+        id: 1,
         address: '408 St. Jacques',
         city: 'Montreal',
         beds: 1,
@@ -11,6 +12,7 @@ export const getaways = [
         image: 'https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?w=1536',
     },
     {
+        id: 2,
         address: '408 St. Jacques',
         city: 'Montreal',
         beds: 1,
@@ -20,6 +22,7 @@ export const getaways = [
         image: 'https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?w=1536',
     },
     {
+        id: 3,
         address: '408 St. Jacques',
         city: 'Montreal',
         beds: 1,

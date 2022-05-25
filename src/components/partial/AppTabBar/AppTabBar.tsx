@@ -23,6 +23,10 @@ export default function AppTabBar({
                             appTheme as 'greatnotgood' | 'lighthouselabs'
                         }`
                     ],
+                    ,
+                    {
+                        zIndex: 10,
+                    },
                 ]}>
                 {state.routes.map((route, index) => {
                     const { options } = descriptors[route.key];
