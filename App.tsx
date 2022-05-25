@@ -17,26 +17,32 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '#/components/screens/HomeScreen';
 import StayScreen from '#/components/screens/StayScreen';
 import SearchScreen from '#/components/screens/SearchScreen';
+import useSetting from '#/hooks/useSetting';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home" id="root">
-        <Stack.Group screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Home" component={HomeScreen} />
-        </Stack.Group>
+    const appTheme = useSetting('app.theme')[0] ?? 'lighthouselabs';
 
-        <Stack.Group
-          screenOptions={{
-            presentation: 'modal',
-            headerShown: false,
-          }}>
-          <Stack.Screen name="Stay" component={StayScreen} />
-          <Stack.Screen name="Search" component={SearchScreen} />
-        </Stack.Group>
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+    return (
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Home" id="root">
+                <Stack.Group screenOptions={{ headerShown: false }}>
+                    <Stack.Screen name="Home" component={HomeScreen} />
+                </Stack.Group>
+
+                <Stack.Group
+                    screenOptions={{
+                        presentation:
+                            appTheme === 'lighthouselabs'
+                                ? 'modal'
+                                : 'fullScreenModal',
+                        headerShown: false,
+                    }}>
+                    <Stack.Screen name="Stay" component={StayScreen} />
+                    <Stack.Screen name="Search" component={SearchScreen} />
+                </Stack.Group>
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
 }

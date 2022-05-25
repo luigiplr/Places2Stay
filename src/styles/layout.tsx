@@ -5,11 +5,26 @@ export default StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
     },
-    center: {
-        alignItems: 'center',
+    centerHorizontal: {
         justifyContent: 'center',
+    },
+    centerVertical: {
+        alignItems: 'center',
+    },
+    spaceApart: {
+        justifyContent: 'space-between',
     },
     flexGrow: {
         flexGrow: 1,
+    },
+    noFlexGrow: {
+        flexGrow: 0,
+    },
+    absolute: {
+        position: 'absolute',
+    },
+    devBorder: {
+        borderColor: 'red',
+        borderWidth: 1,
     },
 });

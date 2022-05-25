@@ -10,13 +10,13 @@ import Icon from 'react-native-vector-icons/Feather';
 export default function HomeHeader() {
     return (
         <>
-            <View style={[layout.flexHorizontal, layout.center]}>
+            <View style={[layout.flexHorizontal, layout.centerHorizontal]}>
                 <StaggeredMenuIcon width={20} height={8} />
 
                 <View
                     style={[
                         layout.flexHorizontal,
-                        layout.center,
+                        layout.centerHorizontal,
                         layout.flexGrow,
                     ]}>
                     <Text>Welcome, </Text>
@@ -38,7 +38,7 @@ export default function HomeHeader() {
             <View
                 style={[
                     layout.flexHorizontal,
-                    layout.center,
+                    layout.centerHorizontal,
                     styles.searchbox,
                 ]}>
                 <Text style={layout.flexGrow} size={14} color="#7581A0">

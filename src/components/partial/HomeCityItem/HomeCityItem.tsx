@@ -15,11 +15,13 @@ export default function HomeCityItem({ image, title, style }: Props) {
                 source={{ uri: image }}
                 style={
                     styles[
-                    `image.${appTheme as 'lighthouselabs' | 'greatnotgood'}`
+                        `image.${appTheme as 'lighthouselabs' | 'greatnotgood'}`
                     ]
                 }
             />
-            <Text center bold>
+            <Text
+                center={appTheme === 'greatnotgood'}
+                bold={appTheme === 'greatnotgood'}>
                 {title}
             </Text>
         </View>

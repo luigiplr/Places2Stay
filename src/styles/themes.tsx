@@ -34,8 +34,7 @@ const greatnotgood = StyleSheet.create({
         fontFamily: 'AvenirNext-Regular',
     },
 
-    textHeaderBold: { fontFamily: 'AvenirNext-Regular' },
-
+    textHeaderBold: { fontFamily: 'AvenirNext-Medium' },
     textBodyBold: { fontFamily: 'AvenirNext-Medium' },
 });
 
