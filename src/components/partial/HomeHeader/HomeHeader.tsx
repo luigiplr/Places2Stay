@@ -1,11 +1,10 @@
-import { Text } from '#/components/base';
+import { Text, Icon } from '#/components/base';
 import { StaggeredMenuIcon } from '#/components/base/Icon';
 import React from 'react';
 import { Image, View } from 'react-native';
 
 import layout from '#/styles/layout';
 import styles from './HomeHeader.styles';
-import Icon from 'react-native-vector-icons/Feather';
 
 export default function HomeHeader() {
     return (
@@ -46,7 +45,7 @@ export default function HomeHeader() {
                     where are you going?
                 </Text>
 
-                <Icon name="search" size={22} color="#39A0FF" />
+                <Icon.FeatherSearchIcon width='22' height='22' color="#39A0FF" />
             </View>
         </>
     );

@@ -40,11 +40,13 @@ export default function HomeExperienceItem({ image, title, style, id }: Props) {
 
                         <View style={[layout.flexHorizontal, { flexGrow: 0 }]}>
                             <SharedElement id={`stay-rating-${id}`}>
-                                <Icon.FeatherStarIcon
-                                    width="15"
-                                    height="15"
-                                    color="#F3B13C"
-                                />
+                                <View>
+                                    <Icon.FeatherStarIcon
+                                        width="15"
+                                        height="15"
+                                        color="#F3B13C"
+                                    />
+                                </View>
                             </SharedElement>
 
                             <Text color="#A0A0A0" style={{ marginLeft: 4 }}>

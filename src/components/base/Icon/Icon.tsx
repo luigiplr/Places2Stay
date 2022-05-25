@@ -7,7 +7,9 @@ import HomeLocationIconSVG from '#/static/img/home-location-icon.svg';
 import BackIconSVG from '#/static/img/back-icon.svg';
 import SearchPinIconSVG from '#/static/img/search-pin.svg';
 import ThreeDotsIconSVG from '#/static/img/3-dots.svg';
-import StarIconSVG from '#/static/img/3-dots.svg';
+
+import FeatherStarIconSVG from '#/static/img/star.svg';
+import FeatherSearchIconSVG from '#/static/img/search.svg';
 
 import type { IconProps } from './Icon.types';
 import { View } from 'react-native';
@@ -36,7 +38,11 @@ export const ThreeDotsIcon = (props: IconProps) => (
 );
 
 export const FeatherStarIcon = (props: IconProps) => (
-    <SvgXml {...props} xml={StarIconSVG} />
+    <SvgXml {...props} xml={FeatherStarIconSVG} />
+);
+
+export const FeatherSearchIcon = (props: IconProps) => (
+    <SvgXml {...props} xml={FeatherSearchIconSVG} />
 );
 
 export const StaggeredMenuIcon = ({

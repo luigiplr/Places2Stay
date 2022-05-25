@@ -1,5 +1,8 @@
 module.exports = {
-    presets: ['module:metro-react-native-babel-preset'],
+    presets:
+        process.env.RN_PLATFORM === 'web'
+            ? ['next/babel']
+            : ['module:metro-react-native-babel-preset'],
     plugins: [
         [
             'module-resolver',
@@ -25,7 +28,9 @@ module.exports = {
             },
         ],
         '@babel/plugin-proposal-export-namespace-from',
-        // ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
-        //   ['react-native-web', { commonjs: true }],
+
+        ...(process.env.RN_PLATFORM === 'web'
+            ? [['react-native-web', { commonjs: true }]]
+            : []),
     ],
 };
