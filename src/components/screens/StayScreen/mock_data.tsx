@@ -7,7 +7,7 @@ export default {
     price: 128,
     details: [
         {
-            title: 'Access codes',
+            title: 'Keyless',
             items: [
                 {
                     itemLabel: 'building',
@@ -31,6 +31,10 @@ export default {
                     itemDetail: 'funwaytostay',
                 },
             ],
+        },
+        {
+            title: 'Pool',
+            items: [],
         },
     ],
 };

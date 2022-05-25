@@ -5,20 +5,18 @@ import styles from './StayScreen.styles';
 
 import stayData from './mock_data';
 import ScreenPartial from '#/components/partial/ScreenPartial';
-import StayDetailItem from '#/components/partial/StayDetailItem';
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView } from 'react-native';
 import useSetting from '#/hooks/useSetting';
 
 import layout from '#/styles/layout';
 import StayHeader from '#/components/partial/StayHeader';
 import {
     StayScreenBackButtonHeader,
-    RatingStars,
     Reviews,
     SectionHeader,
 } from './StayScreen.util';
 import StayImage from '#/components/partial/StayImage/StayImage';
-import { Card, Text } from '#/components/base';
+import StayOfferings from '#/components/partial/StayOfferings';
 
 export default function StayScreen() {
     const appTheme = useSetting('app.theme')[0] ?? 'lighthouselabs';
@@ -31,16 +29,7 @@ export default function StayScreen() {
 
                     <View style={[styles.content, layout.flexGrow]}>
                         <StayHeader {...stayData} />
-
-                        <ScrollView style={styles.details}>
-                            {stayData.details.map(info => (
-                                <StayDetailItem
-                                    title={info.title}
-                                    details={info.items}
-                                    key={info.title}
-                                />
-                            ))}
-                        </ScrollView>
+                        <StayOfferings details={stayData.details} />
                     </View>
                 </>
             ) : (
@@ -61,6 +50,8 @@ export default function StayScreen() {
                             <SectionHeader more>
                                 What this place offers
                             </SectionHeader>
+
+                            <StayOfferings details={stayData.details} />
                         </View>
                     </ScrollView>
                 </>

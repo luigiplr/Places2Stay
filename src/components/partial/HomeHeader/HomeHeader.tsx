@@ -39,6 +39,7 @@ export default function HomeHeader() {
                 style={[
                     layout.flexHorizontal,
                     layout.centerHorizontal,
+                    layout.centerVertical,
                     styles.searchbox,
                 ]}>
                 <Text style={layout.flexGrow} size={14} color="#7581A0">
