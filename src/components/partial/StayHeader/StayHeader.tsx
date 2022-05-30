@@ -16,7 +16,7 @@ export default function StayHeader({
     price,
     id,
 }: StayHeaderProps) {
-    const appTheme = useSetting('app.theme')[0] ?? 'lighthouselabs';
+    const [appTheme] = useSetting('app.theme');
 
     if (appTheme === 'greatnotgood') {
         return (

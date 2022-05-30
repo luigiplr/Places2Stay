@@ -15,7 +15,7 @@ export default function HomeTabNavigator({
 }: {
     children: FunctionComponent<any>;
 }) {
-    const appTheme = useSetting('app.theme')[0] ?? 'lighthouselabs';
+    const [appTheme] = useSetting('app.theme');
 
     return (
         <Tab.Navigator

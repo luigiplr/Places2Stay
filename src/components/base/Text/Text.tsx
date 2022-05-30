@@ -20,7 +20,7 @@ export default function Text({
     size,
     bold,
 }: TextProps) {
-    const appTheme = useSetting('app.theme')[0] ?? 'lighthouselabs';
+    const [appTheme] = useSetting('app.theme');
 
     const varientCap = useMemo(
         () => _.capitalize(varient) as 'Body' | 'Header',

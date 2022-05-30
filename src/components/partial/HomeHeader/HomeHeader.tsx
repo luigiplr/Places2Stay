@@ -6,8 +6,13 @@ import { Image, View } from 'react-native';
 import layout from '#/styles/layout';
 import styles from './HomeHeader.styles';
 import Icon from 'react-native-vector-icons/Feather';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
-export default function HomeHeader() {
+export default function HomeHeader({
+    onSearchPress,
+}: {
+    onSearchPress: () => void;
+}) {
     return (
         <>
             <View style={[layout.flexHorizontal, layout.centerHorizontal]}>
@@ -35,19 +40,21 @@ export default function HomeHeader() {
                 Find deals on hotels, homes, and much more...
             </Text>
 
-            <View
-                style={[
-                    layout.flexHorizontal,
-                    layout.centerHorizontal,
-                    layout.centerVertical,
-                    styles.searchbox,
-                ]}>
-                <Text style={layout.flexGrow} size={14} color="#7581A0">
-                    where are you going?
-                </Text>
+            <TouchableWithoutFeedback onPress={onSearchPress}>
+                <View
+                    style={[
+                        layout.flexHorizontal,
+                        layout.centerHorizontal,
+                        layout.centerVertical,
+                        styles.searchbox,
+                    ]}>
+                    <Text style={layout.flexGrow} size={14} color="#7581A0">
+                        where are you going?
+                    </Text>
 
-                <Icon name="search" size={22} color="#39A0FF" />
-            </View>
+                    <Icon name="search" size={22} color="#39A0FF" />
+                </View>
+            </TouchableWithoutFeedback>
         </>
     );
 }

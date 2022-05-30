@@ -5,10 +5,7 @@ import useSetting from '#/hooks/useSetting';
 import React, { useCallback } from 'react';
 
 export default function SettingsScreen() {
-    const [theme, updateThemeSetting] = useSetting(
-        'app.theme',
-        'lighthouselabs',
-    );
+    const [theme, updateThemeSetting] = useSetting('app.theme');
 
     const onToggleTheme = useCallback(
         (index: number) => {
@@ -23,7 +20,7 @@ export default function SettingsScreen() {
                 Settings
             </Text>
 
-            <Text>App Theme ({theme})</Text>
+            <Text>App Theme</Text>
 
             <Toggle
                 values={['Lighthouse Labs', 'GNG']}

@@ -16,7 +16,7 @@ const icons_map = {
 } as const;
 
 export default function StayDetailItem({ title, items }: StayDetailItemProps) {
-    const appTheme = useSetting('app.theme')[0] ?? 'lighthouselabs';
+    const [appTheme] = useSetting('app.theme');
 
     if (appTheme === 'greatnotgood') {
         return (

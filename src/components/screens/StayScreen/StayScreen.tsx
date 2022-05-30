@@ -20,13 +20,12 @@ import StayImage from '#/components/partial/StayImage/StayImage';
 import { SharedElement } from 'react-navigation-shared-element';
 
 function StayScreen({ route }) {
-    const appTheme = useSetting('app.theme')[0] ?? 'lighthouselabs';
+    const [appTheme] = useSetting('app.theme');
 
     return appTheme === 'lighthouselabs' ? (
         <ScreenPartial scoll={false} ViewComponent={View}>
+            <StayImage data={[stayData.image]} />
             <View style={[styles.content, layout.flexGrow]}>
-                <StayImage data={[stayData.image]} />
-
                 <StayHeader {...stayData} />
                 <StayOfferings details={stayData.details} />
             </View>

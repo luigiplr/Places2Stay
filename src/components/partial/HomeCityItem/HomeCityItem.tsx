@@ -7,7 +7,7 @@ import type { Props } from './HomeCityItem.types';
 import useSetting from '#/hooks/useSetting';
 
 export default function HomeCityItem({ image, title, style }: Props) {
-    const appTheme = useSetting('app.theme')[0] ?? 'lighthouselabs';
+    const [appTheme] = useSetting('app.theme');
 
     return (
         <View style={style}>

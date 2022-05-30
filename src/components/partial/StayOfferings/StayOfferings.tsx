@@ -7,7 +7,7 @@ import { StayOfferingsProps } from './StayOfferings.types';
 import useSetting from '#/hooks/useSetting';
 
 export default function StayOfferings({ details }: StayOfferingsProps) {
-    const appTheme = useSetting('app.theme')[0] ?? 'lighthouselabs';
+    const [appTheme] = useSetting('app.theme');
 
     return (
         <ScrollView

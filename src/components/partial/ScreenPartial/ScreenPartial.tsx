@@ -12,7 +12,7 @@ export default function ScreenPartial({
     scoll = true,
     ViewComponent = SafeAreaView,
 }: ScreenPartialProps) {
-    const appTheme = useSetting('app.theme')[0] ?? 'lighthouselabs';
+    const [appTheme] = useSetting('app.theme');
 
     return (
         <ViewComponent

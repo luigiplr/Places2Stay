@@ -23,6 +23,7 @@ import HomeCityItem from '#/components/partial/HomeCityItem';
 import HomeExperienceItem from '#/components/partial/HomeExperienceItem';
 import useSetting from '#/hooks/useSetting';
 import HomeGetawayPartial from '#/components/partial/HomeGetawayPartial';
+import { useNavigation } from '@react-navigation/native';
 
 export default function HomeScreen() {
     return <HomeTabNavigator>{HomeTab}</HomeTabNavigator>;
@@ -30,6 +31,7 @@ export default function HomeScreen() {
 
 function HomeTab() {
     const [appTheme] = useSetting('app.theme');
+    const nav = useNavigation();
 
     return (
         <>
@@ -42,7 +44,9 @@ function HomeTab() {
             {appTheme === 'greatnotgood' && (
                 <ScreenPartial>
                     <View style={styles.padding}>
-                        <HomeHeader />
+                        <HomeHeader
+                            onSearchPress={() => nav.navigate('Search')}
+                        />
                     </View>
 
                     <HomeSection title="Experience" viewAll>

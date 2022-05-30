@@ -15,7 +15,7 @@ export default function StayImage({
     data: string[];
     id?: string;
 }) {
-    const appTheme = useSetting('app.theme')[0] ?? 'lighthouselabs';
+    const [appTheme] = useSetting('app.theme');
     const dimensions = useMemo(() => Dimensions.get('window'), []);
 
     if (appTheme === 'greatnotgood') {
@@ -48,7 +48,7 @@ export default function StayImage({
     return (
         <Image
             source={{ uri: data?.[0] }}
-            style={[styles.image, { borderBottomRightRadius: 16, height: 219 }]}
+            style={[styles.image, { borderBottomRightRadius: 16 }]}
         />
     );
 }
