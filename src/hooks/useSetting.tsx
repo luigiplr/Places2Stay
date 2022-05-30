@@ -1,23 +1,19 @@
 import { useCallback, useEffect, useState } from 'react';
-import Settings from 'react-native-cross-settings';
+import Settings, { SettingsTypes } from 'react-native-cross-settings';
 import EventEmitter from 'eventemitter3';
+import defaultSettings from '#/static/defaultSettings.json';
 
-type SettingValue = number | string | boolean | null;
-
-const settings = {} as const;
 const settingsEmitter = new EventEmitter();
 
-export default function useSetting(
-    settingKey: string,
-    defaultValue?: SettingValue,
+export default function useSetting<K extends keyof typeof defaultSettings>(
+    settingKey: K,
 ) {
-    const [value, updateValue] = useState(
-        () =>
-            settings?.[settingKey] ?? Settings.get(settingKey) ?? defaultValue,
+    const [value, updateValue] = useState<SettingsTypes>(
+        () => Settings.get(settingKey) ?? defaultSettings?.[settingKey],
     );
 
     useEffect(() => {
-        const onUpdate = (newValue: SettingValue) => updateValue(newValue);
+        const onUpdate = (newValue: SettingsTypes) => updateValue(newValue);
 
         settingsEmitter.on(`update[${settingKey}]`, onUpdate);
 
@@ -27,18 +23,17 @@ export default function useSetting(
     }, [settingKey]);
 
     const updateSetting = useCallback(
-        (newValue: SettingValue) => {
+        (newValue: SettingsTypes) => {
             updateValue(newValue);
 
             Settings.set({ [settingKey]: newValue });
             settingsEmitter.emit(`update[${settingKey}]`, newValue);
-            settings[settingKey] = newValue;
         },
         [settingKey],
     );
 
     return [value, updateSetting] as [
-        SettingValue,
-        (newValue: SettingValue) => void,
+        SettingsTypes,
+        (newValue: SettingsTypes) => void,
     ];
 }

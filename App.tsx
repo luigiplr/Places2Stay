@@ -57,6 +57,10 @@ export default function App() {
                     <SharedStack.Screen
                         name="Search"
                         component={SearchScreen}
+                        options={{
+                            ...TransitionPresets.ModalPresentationIOS,
+                            presentation: 'modal',
+                        }}
                     />
                 </SharedStack.Navigator>
             </NavigationContainer>
