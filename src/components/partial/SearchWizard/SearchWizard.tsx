@@ -3,6 +3,7 @@ import React, { useCallback, useState } from 'react';
 import SearchPlaceForm from '../SearchPlaceForm';
 import SearchPlaceExperienceTypeForm from '../SearchPlaceExperienceTypeForm/SearchPlaceExperienceTypeForm';
 import SearchCalForm from '../SearchCalForm';
+import SearchParticipantsForm from '../SearchParticipantsForm';
 
 export default function SearchWizard() {
     const [data, updateData] = useState({});
@@ -22,6 +23,7 @@ export default function SearchWizard() {
                 city={data?.city}
             />
             <SearchCalForm onSubmit={onSubmit} city={data?.city} />
+            <SearchParticipantsForm onSubmit={onSubmit} city={data?.city} />
         </Wizard>
     );
 }

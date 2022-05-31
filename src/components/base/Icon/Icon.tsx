@@ -10,6 +10,8 @@ import ThreeDotsIconSVG from '#/static/img/3-dots.svg';
 import MapIconSVG from '#/static/img/map.svg';
 import HomepageIconSVG from '#/static/img/homepage.svg';
 import GlassdrinksIconSVG from '#/static/img/glass-drinks.svg';
+import PlusIconSVG from '#/static/img/plus-round-line.svg';
+import MinusIconSVG from '#/static/img/minus-round-line.svg';
 
 import type { IconProps } from './Icon.types';
 import { View } from 'react-native';
@@ -47,6 +49,14 @@ export const HomepageIcon = (props: IconProps) => (
 
 export const GlassdrinksIcon = (props: IconProps) => (
     <SvgXml {...props} xml={GlassdrinksIconSVG} />
+);
+
+export const PlusIcon = (props: IconProps) => (
+    <SvgXml {...props} xml={PlusIconSVG} />
+);
+
+export const MinusIcon = (props: IconProps) => (
+    <SvgXml {...props} xml={MinusIconSVG} />
 );
 
 export const StaggeredMenuIcon = ({
