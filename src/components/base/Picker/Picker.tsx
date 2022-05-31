@@ -22,8 +22,8 @@ export default function Picker({ onChange, title, description }: PickerProps) {
                     layout.flexHorizontal,
                     layout.centerVertical,
                 ]}>
-                <View style={{ height: 30 }}>
-                    <Text>{title}</Text>
+                <View style={{ height: 35 }}>
+                    <Text size={15}>{title}</Text>
                     {description && <Text color="#8C8C8C">{description}</Text>}
                 </View>
 

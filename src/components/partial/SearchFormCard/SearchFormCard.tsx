@@ -1,5 +1,5 @@
 import { View, TouchableOpacity } from 'react-native';
-import React from 'react';
+import React, { useCallback } from 'react';
 import styles from './SearchFormCard.styles';
 import { Props } from './SearchFormCard.types';
 import layout from '#/styles/layout';
@@ -11,8 +11,17 @@ export default function SearchFormCard({
     children,
     title,
     onBackPress,
+    nextStepText = 'Next',
+    onNextPress,
 }: Props) {
     const { nextStep } = useWizard();
+    const _onNextPress = useCallback(() => {
+        nextStep();
+
+        if (onNextPress) {
+            onNextPress();
+        }
+    }, [onNextPress, nextStep]);
 
     return (
         <View style={[styles.bg, layout.flexGrow]}>
@@ -43,7 +52,7 @@ export default function SearchFormCard({
                 <View style={[layout.flexHorizontal, layout.spaceApart]}>
                     <TouchableOpacity
                         style={[styles.next, layout.centerHorizontal]}
-                        onPress={nextStep}>
+                        onPress={_onNextPress}>
                         <Text underline>Skip</Text>
                     </TouchableOpacity>
 
@@ -56,7 +65,7 @@ export default function SearchFormCard({
                                 { backgroundColor: '#4169E1' },
                             ]}>
                             <Text color="white" size={17}>
-                                Next
+                                {nextStepText}
                             </Text>
                         </View>
                     </TouchableOpacity>
