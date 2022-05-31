@@ -7,4 +7,5 @@ export type TextProps = {
     capitalize?: boolean;
     size?: number;
     bold?: boolean;
+    underline?: boolean;
 } & RNTextProps;

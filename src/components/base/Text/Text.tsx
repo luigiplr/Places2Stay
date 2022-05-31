@@ -19,6 +19,7 @@ export default function Text({
     capitalize: capitalizeProp,
     size,
     bold,
+    underline,
 }: TextProps) {
     const [appTheme] = useSetting('app.theme');
 
@@ -46,6 +47,7 @@ export default function Text({
                         `text${varientCap}Bold`
                     ],
                 center && styles.center,
+                underline && { textDecorationLine: 'underline' },
                 typeof size === 'number' ? { fontSize: size } : undefined,
                 { color },
                 style,

@@ -1,47 +1,13 @@
-import { Icon } from '#/components/base';
-import HomeGetawaySearch from '#/components/partial/HomeGetawaySearch';
-import SearchResult from '#/components/partial/SearchResult';
-import React, { useState, useEffect } from 'react';
-import { SafeAreaView, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import SearchWizard from '#/components/partial/SearchWizard';
+import React from 'react';
+import { SafeAreaView } from 'react-native';
 
 import styles from './SearchScreen.styles';
-import searchMockData from './mockData';
-import { Props } from './SearchScreen.types';
 
-export default function SearchScreen({ navigation }: Props) {
-    const [searchInput, onSearchInput] = useState<string>('');
-    const [searchResult, onSearchResult] = useState<string[]>([]);
-
-    useEffect(() => {
-        onSearchResult(
-            searchMockData.cities.filter(label =>
-                label.toLowerCase().includes(searchInput.toLowerCase()),
-            ),
-        );
-    }, [searchInput]);
-
+export default function SearchScreen() {
     return (
         <SafeAreaView style={styles.contain}>
-            <View style={styles.header}>
-                <View style={styles.backIcon}>
-                    <TouchableOpacity onPress={() => navigation.goBack()}>
-                        <Icon.BackIcon width="24" height="24" />
-                    </TouchableOpacity>
-                </View>
-
-                <HomeGetawaySearch
-                    placeholder="Where are you going?"
-                    style={styles.input}
-                    onChangeText={text => onSearchInput(text)}
-                />
-            </View>
-
-            <View style={styles.searchResults}>
-                {searchResult.map(label => (
-                    <SearchResult text={label} key={label} />
-                ))}
-            </View>
+            <SearchWizard />
         </SafeAreaView>
     );
 }
