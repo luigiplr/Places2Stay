@@ -240,13 +240,16 @@ export const Stays = ({ getaways }: { getaways: GetawayItem[] }) => {
                                     />
                                 </SharedElement>
                             </View>
-                            <SharedElement
-                                id={`body-${item.id}`}
-                                style={layout.flexGrow}>
-                                <View style={[{ paddingVertical: 3 }]}>
-                                    <Text bold size={18}>
-                                        $ {item.price * 30}
-                                    </Text>
+                            <View
+                                style={[
+                                    { paddingVertical: 3 },
+                                    layout.flexGrow,
+                                ]}>
+                                <Text bold size={18}>
+                                    $ {item.price * 30}
+                                </Text>
+
+                                <SharedElement id={`body-${item.id}`}>
                                     <View>
                                         <Text
                                             size={12}
@@ -256,7 +259,7 @@ export const Stays = ({ getaways }: { getaways: GetawayItem[] }) => {
                                                 marginTop: 7,
                                             }}
                                             bold>
-                                            {item.address}
+                                            {item.title}
                                         </Text>
                                         <View
                                             style={[
@@ -277,8 +280,8 @@ export const Stays = ({ getaways }: { getaways: GetawayItem[] }) => {
                                             </Text>
                                         </View>
                                     </View>
-                                </View>
-                            </SharedElement>
+                                </SharedElement>
+                            </View>
                             <View
                                 style={[
                                     layout.centerVertical,
