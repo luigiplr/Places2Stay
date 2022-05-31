@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text as _Text } from '#/components/base';
-import { View, TextInput, Image } from 'react-native';
+import { View, TextInput, Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import layout from '#/styles/layout';
 import { BlurView } from '@react-native-community/blur';
@@ -8,6 +8,8 @@ import { TextProps } from '#/components/base/Text/Text.types';
 import RangeSlider from 'rn-range-slider';
 import { GetawayItem } from '../HomeGetawayItem/HomeGetawayItem.types';
 import { ScrollView } from 'react-native-gesture-handler';
+import { SharedElement } from 'react-navigation-shared-element';
+import { useNavigation } from '@react-navigation/native';
 
 const Text = (props: TextProps) => <_Text color="#494A4C" {...props} />;
 
@@ -182,89 +184,113 @@ export const PriceRange = () => {
     );
 };
 
-export const Stays = ({ getaways }: { getaways: GetawayItem[] }) => (
-    <View
-        style={[
-            layout.flexGrow,
-            {
-                borderTopRightRadius: 20,
-                borderTopLeftRadius: 20,
-                backgroundColor: 'white',
-                paddingHorizontal: 34,
-                paddingVertical: 20,
-                top: -15,
-            },
-        ]}>
-        <Text varient="header" bold style={{ marginBottom: 15 }}>
-            Stays
-        </Text>
+export const Stays = ({ getaways }: { getaways: GetawayItem[] }) => {
+    const navigation = useNavigation();
 
-        <ScrollView style={layout.flexGrow}>
-            {getaways.map(item => (
-                <View
-                    style={[
-                        layout.flexHorizontal,
-                        {
-                            borderRadius: 15,
-                            backgroundColor: '#F2F2F2',
-                            marginBottom: 10,
-                            paddingHorizontal: 11,
-                            paddingVertical: 10,
-                            shadowColor: '#000000',
-                            shadowOffset: {
-                                width: 0,
-                                height: 1,
-                            },
-                            shadowOpacity: 0.17,
-                            shadowRadius: 1.05,
-                            elevation: 4,
-                        },
-                    ]}>
-                    <View style={{ marginRight: 15 }}>
-                        <Image
-                            source={{ uri: item.image }}
-                            style={{ height: 70, width: 70, borderRadius: 9 }}
-                        />
-                    </View>
-                    <View style={[{ paddingVertical: 3 }, layout.flexGrow]}>
-                        <Text bold size={18}>
-                            $ {item.price * 30}
-                        </Text>
-                        <View>
-                            <Text
-                                size={12}
-                                color="#AFAFAF"
-                                style={{ opacity: 0.6, marginTop: 7 }}
-                                bold>
-                                {item.address}
-                            </Text>
+    return (
+        <View
+            style={[
+                layout.flexGrow,
+                {
+                    borderTopRightRadius: 20,
+                    borderTopLeftRadius: 20,
+                    backgroundColor: 'white',
+                    paddingHorizontal: 34,
+                    paddingVertical: 20,
+                    top: -15,
+                },
+            ]}>
+            <Text varient="header" bold style={{ marginBottom: 15 }}>
+                Stays
+            </Text>
+
+            <ScrollView style={layout.flexGrow}>
+                {getaways.map(item => (
+                    <TouchableOpacity
+                        key={item.id}
+                        onPress={() => navigation.navigate('Stay', item)}>
+                        <View
+                            style={[
+                                layout.flexHorizontal,
+                                {
+                                    borderRadius: 15,
+                                    backgroundColor: '#F2F2F2',
+                                    marginBottom: 10,
+                                    paddingHorizontal: 11,
+                                    paddingVertical: 10,
+                                    shadowColor: '#000000',
+                                    shadowOffset: {
+                                        width: 0,
+                                        height: 1,
+                                    },
+                                    shadowOpacity: 0.17,
+                                    shadowRadius: 1.05,
+                                    elevation: 4,
+                                },
+                            ]}>
+                            <View style={{ marginRight: 15 }}>
+                                <SharedElement id={`stay-image-${item.id}`}>
+                                    <Image
+                                        source={{ uri: item.image }}
+                                        style={{
+                                            height: 70,
+                                            width: 70,
+                                            borderRadius: 9,
+                                        }}
+                                    />
+                                </SharedElement>
+                            </View>
+                            <SharedElement
+                                id={`body-${item.id}`}
+                                style={layout.flexGrow}>
+                                <View style={[{ paddingVertical: 3 }]}>
+                                    <Text bold size={18}>
+                                        $ {item.price * 30}
+                                    </Text>
+                                    <View>
+                                        <Text
+                                            size={12}
+                                            color="#AFAFAF"
+                                            style={{
+                                                opacity: 0.6,
+                                                marginTop: 7,
+                                            }}
+                                            bold>
+                                            {item.address}
+                                        </Text>
+                                        <View
+                                            style={[
+                                                layout.flexHorizontal,
+                                                layout.centerVertical,
+                                            ]}>
+                                            <Icon
+                                                name="star"
+                                                size={10}
+                                                color="#AFAFAF"
+                                                style={{ marginRight: 5 }}
+                                            />
+                                            <Text
+                                                bold
+                                                size={12}
+                                                color="#AFAFAF">
+                                                {item.stars}
+                                            </Text>
+                                        </View>
+                                    </View>
+                                </View>
+                            </SharedElement>
                             <View
                                 style={[
-                                    layout.flexHorizontal,
                                     layout.centerVertical,
+                                    layout.centerHorizontal,
+                                    { marginRight: 10 },
                                 ]}>
-                                <Icon
-                                    name="star"
-                                    size={10}
-                                    color="#AFAFAF"
-                                    style={{ marginRight: 5 }}
-                                />
-                                <Text bold size={12} color="#AFAFAF">
-                                    {item.stars}
-                                </Text>
+                                <Icon name="heart" size={20} color="#4989E3" />
                             </View>
                         </View>
-                    </View>
-                    <View
-                        style={[
-                            layout.centerVertical,
-                            layout.centerHorizontal,
-                            { marginRight: 10 },
-                        ]}>
-                        <Icon name="heart" size={20} color="#4989E3" />
-                    </View>
-                </View>
-            ))}
-        </ScrollView>
-    </View>
-);
+                    </TouchableOpacity>
+                ))}
+            </ScrollView>
+        </View>
+    );
+};
