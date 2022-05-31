@@ -34,7 +34,16 @@ export default {
         },
         {
             title: 'Pool',
-            items: [],
+            items: [
+                {
+                    itemLabel: 'heated',
+                    itemDetail: 'yes',
+                },
+                {
+                    itemLabel: 'indoors',
+                    itemDetail: 'yes',
+                },
+            ],
         },
     ],
 };

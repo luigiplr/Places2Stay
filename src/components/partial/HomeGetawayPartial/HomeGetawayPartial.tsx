@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, View } from 'react-native';
 
 import HomeGetawaySearch from '../HomeGetawaySearch';
 
@@ -11,6 +11,8 @@ import HomeCityItem from '../HomeCityItem';
 import styles from './HomeGetawayPartial.styles';
 import { HomeGetawayPartialProps } from './HomeGetawayPartial.types';
 import { useNavigation } from '@react-navigation/native';
+import { BellIcon, UserIcon } from '#/components/base/Icon';
+import layout from '#/styles/layout';
 
 export default function HomeGetawayPartial({
     citys,
@@ -38,12 +40,24 @@ export default function HomeGetawayPartial({
                 )
             }
             ListHeaderComponent={() => (
-                <HomeGetawaySearch
-                    interactive={false}
-                    onPress={() => navigation.navigate('Search')}
-                    placeholder="Try 'Boston'"
-                    style={styles.search}
-                />
+                <>
+                    <View
+                        style={[
+                            layout.flexHorizontal,
+                            layout.spaceApart,
+                            styles.topbar,
+                        ]}>
+                        <BellIcon width="29" />
+                        <UserIcon width="29" />
+                    </View>
+
+                    <HomeGetawaySearch
+                        interactive={false}
+                        onPress={() => navigation.navigate('Search')}
+                        placeholder="Try 'Boston'"
+                        style={styles.search}
+                    />
+                </>
             )}
             ListFooterComponent={() => (
                 <Section header="20+ cities to explore" padChildren={false}>

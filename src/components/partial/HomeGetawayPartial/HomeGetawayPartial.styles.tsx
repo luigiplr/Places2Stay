@@ -11,7 +11,7 @@ export default StyleSheet.create({
     search: {
         paddingHorizontal: 32,
         marginBottom: 4,
-        paddingTop: 37,
+        paddingTop: 15,
         zIndex: 99,
         backgroundColor: '#FFF1D2',
     },
@@ -23,5 +23,10 @@ export default StyleSheet.create({
     },
     marginRight20: {
         marginRight: 20,
+    },
+    topbar: {
+        backgroundColor: '#FFF1D2',
+        paddingHorizontal: 30,
+        paddingTop: 10,
     },
 });

@@ -12,6 +12,8 @@ import HomepageIconSVG from '#/static/img/homepage.svg';
 import GlassdrinksIconSVG from '#/static/img/glass-drinks.svg';
 import PlusIconSVG from '#/static/img/plus-round-line.svg';
 import MinusIconSVG from '#/static/img/minus-round-line.svg';
+import BellIconSVG from '#/static/img/bell-line.svg';
+import UserIconSVG from '#/static/img/user.svg';
 
 import type { IconProps } from './Icon.types';
 import { View } from 'react-native';
@@ -21,6 +23,14 @@ import styles from './Icon.styles';
 
 export const CalenderIcon = (props: IconProps) => (
     <SvgXml {...props} xml={CalIconSVG} />
+);
+
+export const UserIcon = (props: IconProps) => (
+    <SvgXml {...props} xml={UserIconSVG} />
+);
+
+export const BellIcon = (props: IconProps) => (
+    <SvgXml {...props} xml={BellIconSVG} />
 );
 
 export const HomeLocationIcon = (props: IconProps) => (

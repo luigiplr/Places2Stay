@@ -88,6 +88,8 @@ export default function SearchCalendarForm({ city }: Props) {
                             markingType={'period'}
                             markedDates={markedDates}
                             pastScrollRange={0}
+                            enableSwipeMonths={true}
+                            hideArrows={false}
                         />
                     ) : (
                         <FlexiblePicker />

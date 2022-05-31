@@ -5,7 +5,7 @@ import React from 'react';
 export default function CalendarScreen() {
     return (
         <ScreenPartial>
-            <Toggle values={['Calendar', "I'm flexible"]} />
+            <Toggle values={['Calendar', "I'm flexible", 'Three options??!']} />
         </ScreenPartial>
     );
 }
