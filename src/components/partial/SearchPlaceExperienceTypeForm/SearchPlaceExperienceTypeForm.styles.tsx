@@ -18,7 +18,7 @@ export default StyleSheet.create({
         padding: 17,
         paddingRight: 20,
         alignItems: 'center',
-        backgroundColor: '#eee',
+        backgroundColor: 'white',
         borderRadius: 8,
         marginBottom: 25,
 

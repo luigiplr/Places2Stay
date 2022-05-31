@@ -65,4 +65,7 @@ export default StyleSheet.create({
         flexDirection: 'row',
         marginTop: 15,
     },
+    toggle: {
+        marginBottom: 20,
+    },
 });

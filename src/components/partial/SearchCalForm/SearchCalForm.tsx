@@ -3,7 +3,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { Props } from './SearchCalForm.types';
 import SearchWizardHeader from '../SearchWizardHeader';
 import SearchFormCard from '../SearchFormCard';
-import { Text, Toggle } from '#/components/base';
+import { Toggle } from '#/components/base';
 import { useWizard } from 'react-use-wizard';
 import { View, Dimensions } from 'react-native';
 import layout from '#/styles/layout';
@@ -76,7 +76,7 @@ export default function SearchCalForm({ city }: Props) {
 
             <SearchFormCard title={city as string} onBackPress={previousStep}>
                 <View style={styles.container}>
-                    <View style={[layout.centerHorizontal]}>
+                    <View style={[layout.centerHorizontal, styles.toggle]}>
                         <Toggle
                             values={['Calendar', "I'm flexible"]}
                             onToggle={onToggle}

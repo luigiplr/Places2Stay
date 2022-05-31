@@ -7,6 +7,9 @@ import HomeLocationIconSVG from '#/static/img/home-location-icon.svg';
 import BackIconSVG from '#/static/img/back-icon.svg';
 import SearchPinIconSVG from '#/static/img/search-pin.svg';
 import ThreeDotsIconSVG from '#/static/img/3-dots.svg';
+import MapIconSVG from '#/static/img/map.svg';
+import HomepageIconSVG from '#/static/img/homepage.svg';
+import GlassdrinksIconSVG from '#/static/img/glass-drinks.svg';
 
 import type { IconProps } from './Icon.types';
 import { View } from 'react-native';
@@ -32,6 +35,18 @@ export const SearchPinIcon = (props: IconProps) => (
 
 export const ThreeDotsIcon = (props: IconProps) => (
     <SvgXml {...props} xml={ThreeDotsIconSVG} />
+);
+
+export const MapIcon = (props: IconProps) => (
+    <SvgXml {...props} xml={MapIconSVG} />
+);
+
+export const HomepageIcon = (props: IconProps) => (
+    <SvgXml {...props} xml={HomepageIconSVG} />
+);
+
+export const GlassdrinksIcon = (props: IconProps) => (
+    <SvgXml {...props} xml={GlassdrinksIconSVG} />
 );
 
 export const StaggeredMenuIcon = ({

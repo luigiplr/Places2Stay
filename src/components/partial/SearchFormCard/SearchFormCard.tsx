@@ -37,9 +37,7 @@ export default function SearchFormCard({
                 </Text>
             </View>
 
-            <View style={[styles.body, layout.flexGrow, layout.devBorder]}>
-                {children}
-            </View>
+            <View style={[styles.body, layout.flexGrow]}>{children}</View>
 
             <View style={[styles.bottomBar]}>
                 <View style={[layout.flexHorizontal, layout.spaceApart]}>

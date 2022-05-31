@@ -15,7 +15,7 @@ export const Option = ({
 }) => (
     <View style={styles.option}>
         <View>
-            <Text>{title}</Text>
+            <Text size={16}>{title}</Text>
             <Text>{desc}</Text>
         </View>
 
