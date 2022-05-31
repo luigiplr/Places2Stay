@@ -39,7 +39,6 @@ export default function HomeHeader({
             <Text style={styles.header}>
                 Find deals on hotels, homes, and much more...
             </Text>
-
             <TouchableWithoutFeedback onPress={onSearchPress}>
                 <View
                     style={[

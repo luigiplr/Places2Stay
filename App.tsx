@@ -29,7 +29,7 @@ const NativeStack = createNativeStackNavigator();
 const SharedStack = createSharedElementStackNavigator();
 
 export default function App() {
-    const appTheme = useSetting('app.theme')[0] ?? 'lighthouselabs';
+    const appTheme = useSetting('app.theme')[0];
 
     if (appTheme === 'greatnotgood') {
         return (
@@ -59,7 +59,7 @@ export default function App() {
                         component={SearchScreen}
                         options={{
                             ...TransitionPresets.ModalPresentationIOS,
-                            presentation: 'modal',
+                            presentation: 'transparentModal',
                         }}
                     />
                 </SharedStack.Navigator>
