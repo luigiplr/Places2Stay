@@ -2,7 +2,7 @@ import { Wizard } from 'react-use-wizard';
 import React, { useCallback, useState } from 'react';
 import SearchPlaceForm from '../SearchPlaceForm';
 import SearchPlaceExperienceTypeForm from '../SearchPlaceExperienceTypeForm/SearchPlaceExperienceTypeForm';
-import SearchCalForm from '../SearchCalForm';
+import SearchCalendarForm from '../SearchCalendarForm';
 import SearchParticipantsForm from '../SearchParticipantsForm';
 import { Props } from './SearchWizard.types';
 
@@ -27,7 +27,7 @@ export default function SearchWizard({ showResultsToggle }: Props) {
                 onSubmit={onSubmit}
                 city={data?.city}
             />
-            <SearchCalForm onSubmit={onSubmit} city={data?.city} />
+            <SearchCalendarForm onSubmit={onSubmit} city={data?.city} />
             <SearchParticipantsForm
                 onSubmit={onSubmit}
                 city={data?.city}

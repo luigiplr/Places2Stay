@@ -1,10 +1,11 @@
 import { Text } from '#/components/base';
 import { CalenderIcon } from '#/components/base/Icon';
+import _ from 'lodash';
 import moment from 'moment';
 import React, { useMemo, useState } from 'react';
 import { ScrollView, TouchableOpacity, View } from 'react-native';
 
-import styles from './SearchCalForm.styles';
+import styles from './SearchCalendarForm.styles';
 
 const lengths = ['Weekend', 'Week', 'Month'];
 
@@ -34,11 +35,17 @@ export const FlexiblePicker = () => {
                     {lengths[selectedLength].toLocaleLowerCase()}
                 </Text>
             </View>
+
             <View style={styles.lengths}>
                 {lengths.map((length, index) => (
                     <TouchableOpacity
                         onPress={() => setSelectedLength(index)}
-                        style={styles.length}>
+                        style={[
+                            styles.length,
+                            selectedLength === index && {
+                                backgroundColor: 'white',
+                            },
+                        ]}>
                         <Text>{length}</Text>
                     </TouchableOpacity>
                 ))}
@@ -48,11 +55,23 @@ export const FlexiblePicker = () => {
                 <Text>Go in </Text>
                 <Text style={styles.bold}>{months.join(', ')}</Text>
             </View>
+
             <ScrollView horizontal style={styles.months}>
                 {comingMonths.map(({ month, year }) => (
                     <TouchableOpacity
-                        style={styles.month}
-                        onPress={() => setMonths([...months, month])}>
+                        style={[
+                            styles.month,
+                            months.includes(month) && {
+                                backgroundColor: 'white',
+                            },
+                        ]}
+                        onPress={() =>
+                            setMonths(
+                                !months.includes(month)
+                                    ? [...months, month]
+                                    : _.without(months, month),
+                            )
+                        }>
                         <CalenderIcon />
 
                         <Text style={styles.monthText}>{month}</Text>

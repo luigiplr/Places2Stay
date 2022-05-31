@@ -210,6 +210,14 @@ export const Stays = ({ getaways }: { getaways: GetawayItem[] }) => (
                             marginBottom: 10,
                             paddingHorizontal: 11,
                             paddingVertical: 10,
+                            shadowColor: '#000000',
+                            shadowOffset: {
+                                width: 0,
+                                height: 1,
+                            },
+                            shadowOpacity: 0.17,
+                            shadowRadius: 1.05,
+                            elevation: 4,
                         },
                     ]}>
                     <View style={{ marginRight: 15 }}>

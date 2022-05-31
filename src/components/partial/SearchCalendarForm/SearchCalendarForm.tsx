@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react';
 
-import { Props } from './SearchCalForm.types';
+import { Props } from './SearchCalendarForm.types';
 import SearchWizardHeader from '../SearchWizardHeader';
 import SearchFormCard from '../SearchFormCard';
 import { Toggle } from '#/components/base';
@@ -8,11 +8,11 @@ import { useWizard } from 'react-use-wizard';
 import { View, Dimensions } from 'react-native';
 import layout from '#/styles/layout';
 import { CalendarList } from 'react-native-calendars';
-import { FlexiblePicker } from './SearchCalForm.util';
+import { FlexiblePicker } from './SearchCalendarForm.util';
 
-import styles from './SearchCalForm.styles';
+import styles from './SearchCalendarForm.styles';
 
-export default function SearchCalForm({ city }: Props) {
+export default function SearchCalendarForm({ city }: Props) {
     const { previousStep } = useWizard();
 
     const minDate = useMemo(() => new Date().toISOString(), []);
