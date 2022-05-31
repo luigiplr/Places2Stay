@@ -58,10 +58,7 @@ export default function SearchCalendarForm({ city }: Props) {
                 newMarkedDates[currentDateString] = {
                     startingDay: isStartDay,
                     endingDay: isEndDay,
-                    color:
-                        isStartDay || isEndDay
-                            ? '#4169E1'
-                            : 'rgb(173, 216, 230)',
+                    color: isStartDay || isEndDay ? '#4989E3' : '#9AC8FC',
                     textColor: isStartDay || isEndDay ? '#fff' : '#000',
                 };
             }
