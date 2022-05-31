@@ -14,7 +14,7 @@ export default function HomeGetawayItem({
     beds,
     city,
     image,
-    style
+    style,
 }: GetawayItem) {
     const navigation = useNavigation();
 

@@ -1,47 +1,53 @@
-import { Icon } from '#/components/base';
-import HomeGetawaySearch from '#/components/partial/HomeGetawaySearch';
-import SearchResult from '#/components/partial/SearchResult';
-import React, { useState, useEffect } from 'react';
+import SearchWizard from '#/components/partial/SearchWizard';
+import React, { useState } from 'react';
 import { SafeAreaView, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import styles from './SearchScreen.styles';
-import searchMockData from './mockData';
-import { Props } from './SearchScreen.types';
+import { getaways } from '../HomeScreen/mock_data';
+import HomeGetawayItem from '#/components/partial/HomeGetawayItem';
+import { Text } from '#/components/base';
+import { ScrollView } from 'react-native-gesture-handler';
+import ModernSearch from '#/components/partial/ModernSearch';
+import useSetting from '#/hooks/useSetting';
 
-export default function SearchScreen({ navigation }: Props) {
-    const [searchInput, onSearchInput] = useState<string>('');
-    const [searchResult, onSearchResult] = useState<string[]>([]);
+export default function SearchScreen() {
+    const [appTheme] = useSetting('app.theme');
 
-    useEffect(() => {
-        onSearchResult(
-            searchMockData.cities.filter(label =>
-                label.toLowerCase().includes(searchInput.toLowerCase()),
-            ),
-        );
-    }, [searchInput]);
+    const [showResultsCity, updateResultsShown] = useState<string | boolean>(
+        false,
+    );
+
+    if (appTheme === 'greatnotgood') {
+        return <ModernSearch getaways={getaways} />;
+    }
 
     return (
         <SafeAreaView style={styles.contain}>
-            <View style={styles.header}>
-                <View style={styles.backIcon}>
-                    <TouchableOpacity onPress={() => navigation.goBack()}>
-                        <Icon.BackIcon width="24" height="24" />
-                    </TouchableOpacity>
+            {showResultsCity ? (
+                <View style={{ paddingHorizontal: 54 }}>
+                    <View style={{ paddingVertical: 35 }}>
+                        <Text
+                            varient="header"
+                            size={20}
+                            style={{ marginBottom: 10 }}>
+                            +250 Places in {showResultsCity}
+                        </Text>
+
+                        <Text>
+                            Our spaces are designed for comfort - whether you
+                            are working, relaxing, or craving some spaces
+                        </Text>
+                    </View>
+
+                    <ScrollView>
+                        {getaways.map((item, index) => (
+                            <HomeGetawayItem {...item} key={index} />
+                        ))}
+                    </ScrollView>
                 </View>
-
-                <HomeGetawaySearch
-                    placeholder="Where are you going?"
-                    style={styles.input}
-                    onChangeText={text => onSearchInput(text)}
-                />
-            </View>
-
-            <View style={styles.searchResults}>
-                {searchResult.map(label => (
-                    <SearchResult text={label} key={label} />
-                ))}
-            </View>
+            ) : (
+                <SearchWizard showResultsToggle={updateResultsShown} />
+            )}
         </SafeAreaView>
     );
 }

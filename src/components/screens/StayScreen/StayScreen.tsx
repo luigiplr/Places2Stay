@@ -1,44 +1,99 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View } from 'react-native';
 
 import styles from './StayScreen.styles';
 
 import stayData from './mock_data';
 import ScreenPartial from '#/components/partial/ScreenPartial';
-import { Text } from '#/components/base';
-import StayDetailItem from '#/components/partial/StayDetailItem';
+import useSetting from '#/hooks/useSetting';
+
+import layout from '#/styles/layout';
+import StayHeader from '#/components/partial/StayHeader';
+import {
+    StayScreenBackButtonHeader,
+    Reviews,
+    SectionHeader,
+} from './StayScreen.util';
+import StayOfferings from '#/components/partial/StayOfferings';
 import { ScrollView } from 'react-native-gesture-handler';
+import StayImage from '#/components/partial/StayImage/StayImage';
+import { SharedElement } from 'react-navigation-shared-element';
 
-export default function StayScreen() {
-    return (
-        <ScreenPartial scoll={false}>
-            <Image source={{ uri: stayData.image }} style={styles.image} />
+function StayScreen({ route }) {
+    const [appTheme] = useSetting('app.theme');
 
-            <View style={styles.content}>
-                <Text varient="header">{stayData.title}</Text>
-                <Text style={styles.meta}>{stayData.location}</Text>
-                <Text style={styles.meta}>{stayData.dates}</Text>
-
-                <ScrollView style={styles.details}>
-                    {stayData.details.map(info => (
-                        <StayDetailItem
-                            title={info.title}
-                            details={info.items}
-                            key={info.title}
-                        />
-                    ))}
-                </ScrollView>
+    return appTheme === 'lighthouselabs' ? (
+        <ScreenPartial scoll={false} ViewComponent={View}>
+            <StayImage data={[stayData.image]} />
+            <View style={[styles.content, layout.flexGrow]}>
+                <StayHeader {...stayData} />
+                <StayOfferings details={stayData.details} />
             </View>
         </ScreenPartial>
+    ) : (
+        <>
+            <View
+                style={[
+                    layout.absolute,
+                    {
+                        backgroundColor: 'white',
+                        height: '100%',
+                        width: '100%',
+                    },
+                ]}
+            />
+
+            <ScrollView
+                stickyHeaderIndices={[1]}
+                showsVerticalScrollIndicator={false}>
+                <SharedElement id={`body-${route?.params?.id}`}>
+                    <View>
+                        <View>
+                            <StayScreenBackButtonHeader />
+
+                            <StayImage
+                                id={route?.params?.id}
+                                data={[stayData.image]}
+                            />
+                        </View>
+
+                        <View style={{ flex: 1 }}>
+                            <StayHeader
+                                {...stayData}
+                                titleShort={route?.params?.title}
+                                id={route?.params?.id}
+                            />
+
+                            <View style={[styles.content, { paddingTop: 0 }]}>
+                                <Reviews />
+
+                                <SectionHeader more>
+                                    What this place offers
+                                </SectionHeader>
+
+                                <StayOfferings details={stayData.details} />
+                            </View>
+                        </View>
+                    </View>
+                </SharedElement>
+            </ScrollView>
+        </>
     );
 }
+
+StayScreen.sharedElements = route => [
+    {
+        id: `stay-image-${route?.params?.id}`,
+        animation: 'move',
+        resize: 'auto',
+        align: 'auto',
+    },
+    {
+        id: `body-${route?.params?.id}`,
+        animation: 'fade',
+        resize: 'auto',
+        align: 'auto',
+    },
+];
+
+export default StayScreen;

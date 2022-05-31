@@ -32,4 +32,15 @@ export default StyleSheet.create({
         justifyContent: 'center',
         marginRight: 16,
     },
+    box: {
+        paddingHorizontal: 15,
+        paddingVertical: 18,
+        borderColor: '#D4DDF8',
+        borderWidth: 1,
+        borderRadius: 9,
+        width: 88,
+        height: 88,
+        justifyContent: 'space-between',
+        marginRight: 23
+    },
 });

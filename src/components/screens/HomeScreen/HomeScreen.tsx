@@ -10,33 +10,84 @@
 
 import React from 'react';
 
-import { Icon } from '#/components/base';
-import AppTabBar from '#/components/partial/AppTabBar';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { HomeSection } from './HomeScreen.util';
+import HomeTabNavigator from '#/components/partial/HomeTabNavigator';
 
-import { HomeTab } from './HomeScreen.util';
-import CalendarScreen from '../CalenderScreen/CalendarScreen';
+import ScreenPartial from '#/components/partial/ScreenPartial';
+import { citys, getaways } from './mock_data';
+import HomeHeader from '#/components/partial/HomeHeader';
 
-const Tab = createBottomTabNavigator();
+import styles from './HomeScreen.styles';
+import { View, FlatList } from 'react-native';
+import HomeCityItem from '#/components/partial/HomeCityItem';
+import HomeExperienceItem from '#/components/partial/HomeExperienceItem';
+import useSetting from '#/hooks/useSetting';
+import HomeGetawayPartial from '#/components/partial/HomeGetawayPartial';
+import { useNavigation } from '@react-navigation/native';
 
 export default function HomeScreen() {
+    return <HomeTabNavigator>{HomeTab}</HomeTabNavigator>;
+}
+
+function HomeTab() {
+    const [appTheme] = useSetting('app.theme');
+    const nav = useNavigation();
+
     return (
-        <Tab.Navigator tabBar={AppTabBar} initialRouteName="home_tab">
-            <Tab.Screen
-                name="home_tab"
-                component={HomeTab}
-                options={{
-                    headerShown: false,
-                    icon: <Icon.HomeLocationIcon width="34" height="30" />,
-                }}
-            />
-            <Tab.Screen
-                name="other_tab"
-                component={CalendarScreen}
-                options={{
-                    icon: <Icon.CalenderIcon width="34" height="30" />,
-                }}
-            />
-        </Tab.Navigator>
+        <>
+            {appTheme === 'lighthouselabs' && (
+                <ScreenPartial scoll={false}>
+                    <HomeGetawayPartial citys={citys} getaways={getaways} />
+                </ScreenPartial>
+            )}
+
+            {appTheme === 'greatnotgood' && (
+                <ScreenPartial>
+                    <View style={styles.padding}>
+                        <HomeHeader
+                            onSearchPress={() => nav.navigate('Search')}
+                        />
+                    </View>
+
+                    <HomeSection title="Experience" viewAll>
+                        <FlatList
+                            horizontal
+                            data={getaways}
+                            renderItem={({ item, index }) => (
+                                <HomeExperienceItem
+                                    {...item}
+                                    key={index}
+                                    style={[
+                                        { marginRight: 22 },
+                                        index === 0
+                                            ? { marginLeft: 40 }
+                                            : undefined,
+                                    ]}
+                                />
+                            )}
+                        />
+                    </HomeSection>
+
+                    <HomeSection title="Explore City" arrows>
+                        <FlatList
+                            horizontal
+                            data={citys}
+                            renderItem={({ item, index }) => (
+                                <HomeCityItem
+                                    {...item}
+                                    key={`${index}-${item.id}`}
+                                    style={[
+                                        { marginRight: 23 },
+                                        index === 0
+                                            ? { marginLeft: 40 }
+                                            : undefined,
+                                    ]}
+                                />
+                            )}
+                        />
+                    </HomeSection>
+                </ScreenPartial>
+            )}
+        </>
     );
 }

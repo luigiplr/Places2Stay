@@ -1,0 +1,1 @@
+export const rounded = (amount: number) => ({ borderRadius: amount })

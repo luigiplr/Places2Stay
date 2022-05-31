@@ -12,6 +12,7 @@ module.exports = {
                     '.ts',
                     '.tsx',
                     '.json',
+                    '.png',
                 ],
                 alias: {
                     '#': './src/',

@@ -5,5 +5,5 @@ type DetailItem = {
 
 export type StayDetailItemProps = {
     title: string;
-    details: DetailItem[];
+    items: DetailItem[];
 };
