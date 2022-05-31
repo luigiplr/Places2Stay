@@ -8,7 +8,7 @@ import _ from 'lodash';
 
 const participantTypes = ['adults', 'children', 'infants', 'pets'];
 
-export default function SearchParticipantsForm({ city }: Props) {
+export default function SearchParticipantsForm({ city, onComplete }: Props) {
     const { previousStep } = useWizard();
     const [participants, updateParticipants] = useState<object>({});
 
@@ -19,7 +19,8 @@ export default function SearchParticipantsForm({ city }: Props) {
             <SearchFormCard
                 title={city as string}
                 onBackPress={previousStep}
-                nextStepText="Find Places">
+                nextStepText="Find Places"
+                onNextPress={onComplete}>
                 {participantTypes.map(participant => (
                     <Picker
                         title={_.capitalize(participant)}

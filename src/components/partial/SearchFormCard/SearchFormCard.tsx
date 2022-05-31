@@ -15,6 +15,7 @@ export default function SearchFormCard({
     onNextPress,
 }: Props) {
     const { nextStep } = useWizard();
+
     const _onNextPress = useCallback(() => {
         nextStep();
 
@@ -56,7 +57,7 @@ export default function SearchFormCard({
                         <Text underline>Skip</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={nextStep}>
+                    <TouchableOpacity onPress={_onNextPress}>
                         <View
                             style={[
                                 styles.next,

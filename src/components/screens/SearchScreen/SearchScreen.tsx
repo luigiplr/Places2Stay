@@ -25,7 +25,7 @@ export default function SearchScreen() {
                     ))}
                 </View>
             ) : (
-                <SearchWizard showResults={updateResultsShown} />
+                <SearchWizard showResultsToggle={updateResultsShown} />
             )}
         </SafeAreaView>
     );
