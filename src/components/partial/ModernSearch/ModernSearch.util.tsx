@@ -11,6 +11,13 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { SharedElement } from 'react-navigation-shared-element';
 import { useNavigation } from '@react-navigation/native';
 
+/*
+
+PLEASE NOTE: THIS WAS A LAST MINUTE THEME FOR SEARCH, COMPONENTS ARE NOT BROKEN UP AND ITS CHAOS.
+- Luigi
+
+*/
+
 const Text = (props: TextProps) => <_Text color="#494A4C" {...props} />;
 
 export const Header = () => (
