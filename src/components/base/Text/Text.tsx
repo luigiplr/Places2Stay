@@ -4,7 +4,6 @@ import capitalize from 'capitalize';
 
 import _ from 'lodash';
 
-import styles from './Text.styles';
 import useSetting from '#/hooks/useSetting';
 
 import themes from '#/styles/themes';
@@ -19,6 +18,7 @@ export default function Text({
     size,
     bold,
     underline,
+    ...props
 }: TextProps) {
     const [appTheme] = useSetting('app.theme');
 
@@ -45,12 +45,13 @@ export default function Text({
                     themes?.[appTheme as 'lighthouselabs' | 'greatnotgood']?.[
                         `text${varientCap}Bold`
                     ],
-                center && styles.center,
+                center ? { textAlign: 'center' } : undefined,
                 underline && { textDecorationLine: 'underline' },
                 typeof size === 'number' ? { fontSize: size } : undefined,
                 { color },
                 style,
-            ]}>
+            ]}
+            {...props}>
             {body}
         </RNText>
     );
