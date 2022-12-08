@@ -1,8 +1,7 @@
 import React, { useMemo } from 'react';
-import { Text as RNText } from 'react-native';
+import { Text as RNText, TextProps as RNTextProps } from 'react-native';
 import capitalize from 'capitalize';
 
-import type { TextProps } from './Text.types';
 import _ from 'lodash';
 
 import styles from './Text.styles';
@@ -56,3 +55,13 @@ export default function Text({
         </RNText>
     );
 }
+
+export type TextProps = RNTextProps & {
+    varient?: 'header' | 'body';
+    color?: string;
+    center?: boolean;
+    capitalize?: boolean;
+    size?: number;
+    bold?: boolean;
+    underline?: boolean;
+};
